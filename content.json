@@ -461,12 +461,12 @@
   },
   "join": {
     "title": {
-      "ne": "यो अभियान हो।",
-      "en": "This is a Campaign."
+      "ne": "सुझाव र गुनासो",
+      "en": "Suggestions & Grievances"
     },
     "subtitle": {
-      "ne": "DIDI अभियानमा जोडिनुहोस्",
-      "en": "Join the DIDI Campaign"
+      "ne": "रेनु दिदीलाई आफ्नो अमूल्य सुझाव र गुनासो पठाउनुहोस्",
+      "en": "Send your valuable suggestions and grievances to Renu Didi"
     },
     "form": {
       "name": {
@@ -477,32 +477,22 @@
         "ne": "फोन/इमेल",
         "en": "Phone/Email"
       },
-      "district": {
-        "ne": "जिल्ला",
-        "en": "District"
+      "message": {
+        "ne": "तपाईंको सुझाव वा गुनासो",
+        "en": "Your Suggestion or Grievance"
       },
-      "help": {
-        "ne": "तपाईं कसरी योगदान गर्न चाहनुहुन्छ?",
-        "en": "How can you help?"
+      "placeholder": {
+        "ne": "यहाँ लेख्नुहोस्...",
+        "en": "Type your message here..."
       },
-      "options": [
-        {
-          "ne": "स्वयंसेवक",
-          "en": "Volunteer"
-        },
-        {
-          "ne": "समर्थन",
-          "en": "Support"
-        },
-        {
-          "ne": "साझेदारी",
-          "en": "Share"
-        }
-      ]
+      "submit": {
+        "ne": "Join ",
+        "en": "Join "
+      }
     },
     "privacy": {
-      "ne": "हामी तपाईंको गोपनीयताको सम्मान गर्छौं।",
-      "en": "We respect your privacy."
+      "ne": "तपाईंको सुचना गोप्य राखिनेछ।",
+      "en": "Your message will be kept private."
     }
   },
   "footer": {
@@ -513,7 +503,7 @@
           "ne": "गृहपृष्ठ",
           "en": "Home"
         },
-        "href": "#hero"
+        "href": "/"
       },
       {
         "text": {
@@ -528,6 +518,13 @@
           "en": "Vision"
         },
         "href": "#manifesto"
+      },
+      {
+        "text": {
+          "ne": "समर्थन फ्रेम",
+          "en": "Support Frame"
+        },
+        "href": "/support"
       },
       {
         "text": {

@@ -18,13 +18,13 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    { ne: 'गृहपृष्ठ', en: 'Home', href: '#hero' },
+    { ne: 'गृहपृष्ठ', en: 'Home', href: '/' },
     { ne: 'DIDI', en: 'DIDI', href: '#why-didi' },
     { ne: 'दृष्टिकोण', en: 'Vision', href: '#didi-acronym' },
     { ne: 'प्रभाव', en: 'Impact', href: '#impact' },
     { ne: 'तथ्य', en: 'Facts', href: '#facts' },
     { ne: 'घोषणापत्र', en: 'Manifesto', href: '#manifesto' },
-    { ne: 'फ्रेम', en: 'Frame', href: '/support' },
+    { ne: 'समर्थन फ्रेम', en: 'Support Frame', href: '/support' },
   ]
 
   return (
@@ -75,7 +75,7 @@ export default function Header() {
             </div>
 
             {/* CTA Button */}
-            <a href="#join" className="btn-primary !px-5 !py-2 !rounded-full text-sm ml-4">
+            <a href="/support" className="btn-primary !px-5 !py-2 !rounded-full text-sm ml-4">
               {t('समर्थन जनाउनुहोस् ', 'Support ')}<span className="text-white">★</span>
             </a>
           </div>
@@ -132,7 +132,7 @@ export default function Header() {
                 </span>
               </a>
             ))}
-            <a href="#join" className="btn-primary w-full mt-4 block text-center !rounded-full !py-3">
+            <a href="/support" className="btn-primary w-full mt-4 block text-center !rounded-full !py-3">
               {t('समर्थन जनाउनुहोस् ', 'Support ')}<span className="text-white">★</span>
             </a>
           </motion.div>

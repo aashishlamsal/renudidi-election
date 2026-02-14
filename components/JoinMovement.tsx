@@ -13,8 +13,7 @@ export default function JoinMovement() {
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
-    district: '',
-    help: '',
+    message: '',
   })
   const [copied, setCopied] = useState(false)
   const { language, t } = useLanguage()
@@ -22,7 +21,7 @@ export default function JoinMovement() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle form submission
-    alert('Thank you for joining the DIDI Movement! ★')
+    alert('Thank you for your suggestion! रेनु दिदीको अभियानमा जोडिनुभएकोमा धन्यवाद। ★')
   }
 
   const handleShare = () => {
@@ -103,61 +102,28 @@ export default function JoinMovement() {
               />
             </div>
 
-            {/* District Field */}
+            {/* Message Field (Textarea) */}
             <div>
               <label className={`block mb-2 font-semibold text-didi-black ${language === 'ne' ? 'font-nepali' : ''}`}>
-                {t(join.form.district.ne, join.form.district.en)}
-                <span className="text-sm text-didi-black/50 ml-2">{t('(ऐच्छिक)', '(Optional)')}</span>
+                {t(join.form.message.ne, join.form.message.en)}
               </label>
-              <input
-                type="text"
-                value={formData.district}
-                onChange={(e) => setFormData({ ...formData, district: e.target.value })}
-                className="w-full px-4 py-3 border-2 border-didi-black/20 rounded-xl focus:border-didi-red focus:outline-none transition-colors"
-                placeholder={t('तपाईंको जिल्ला', 'Your District')}
+              <textarea
+                required
+                rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full px-4 py-3 border-2 border-didi-black/20 rounded-xl focus:border-didi-red focus:outline-none transition-colors resize-none"
+                placeholder={t(join.form.placeholder.ne, join.form.placeholder.en)}
               />
             </div>
 
-            {/* How Can You Help */}
-            <div>
-              <label className={`block mb-2 font-semibold text-didi-black ${language === 'ne' ? 'font-nepali' : ''}`}>
-                {t(join.form.help.ne, join.form.help.en)}
-              </label>
-              <div className="flex flex-wrap gap-3">
-                {join.form.options.map((option, idx) => (
-                  <label
-                    key={idx}
-                    className="flex items-center gap-2 px-4 py-2 border-2 border-didi-black/20 rounded-xl cursor-pointer hover:border-didi-red transition-colors"
-                  >
-                    <input
-                      type="radio"
-                      name="help"
-                      value={option.en}
-                      onChange={(e) => setFormData({ ...formData, help: e.target.value })}
-                      className="accent-didi-red"
-                    />
-                    <span className={language === 'ne' ? 'font-nepali font-medium' : 'font-medium'}>
-                      {t(option.ne, option.en)}
-                    </span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Buttons */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-              <button type="submit" className="btn-primary w-full">
-                {t('सहभागी बन्नुहोस् ', 'Join ')}<span className="text-didi-red">★</span>
-              </button>
-              <button type="button" className="btn-secondary w-full">
-                {t('स्वयंसेवक ', 'Volunteer ')}<span className="text-didi-red">★</span>
-              </button>
+            {/* Submit Button */}
+            <div className="pt-4">
               <button
-                type="button"
-                onClick={handleShare}
-                className="btn-outline w-full"
+                type="submit"
+                className={`w-full py-4 rounded-xl font-black text-lg transition-all duration-300 border-2 border-didi-red bg-white text-didi-red hover:bg-didi-red hover:text-white shadow-xl hover:scale-[1.02] flex items-center justify-center gap-2 ${language === 'ne' ? 'font-nepali' : ''}`}
               >
-                {copied ? t('प्रतिलिपि भयो! ★', 'Copied! ★') : t('साझा गर्नुहोस् ', 'Share ')}<span className="text-didi-red">★</span>
+                {t(join.form.submit.ne, join.form.submit.en)} ★
               </button>
             </div>
 

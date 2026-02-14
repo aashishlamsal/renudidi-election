@@ -154,86 +154,151 @@ export default function SupportPage() {
                                 {/* Bottom: Controls */}
                                 <div className="w-full max-w-[600px] bg-didi-gray/50 p-6 md:p-10 rounded-3xl border-2 border-didi-black/5 shadow-inner">
                                     <AnimatePresence mode="wait">
-                                        {/* Step 1: Background Selection */}
+                                        {/* Step 1: Photo Upload & Optional BG Removal */}
                                         {step === 1 && (
                                             <motion.div
                                                 key="step1"
                                                 initial={{ opacity: 0, x: 20 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -20 }}
+                                                className="space-y-8"
                                             >
-                                                <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                                                    <span className="text-didi-red">★</span> {t('पृष्ठभूमि छनोट गर्नुहोस्', '1. Select a Background')}
+                                                <h3 className="text-xl font-bold flex items-center gap-2">
+                                                    <span className="text-didi-red">★</span> {t('फोटो अपलोड गर्नुहोस्', '1. Upload Photo')}
                                                 </h3>
-                                                <div className="grid grid-cols-2 gap-4">
-                                                    {FRAMES.map((f) => (
+
+                                                {!userImage ? (
+                                                    <div
+                                                        onClick={() => fileInputRef.current?.click()}
+                                                        className="aspect-video w-full border-4 border-dashed border-didi-red/20 rounded-3xl flex flex-col items-center justify-center gap-4 cursor-pointer hover:bg-didi-red/5 transition-colors group"
+                                                    >
+                                                        <div className="text-5xl group-hover:scale-110 transition-transform">📸</div>
+                                                        <p className="font-bold text-didi-black/60">{t('फोटो यहाँ तान्नुहोस् वा छुनुहोस्', 'Click to Upload Photo')}</p>
+                                                        <input
+                                                            type="file"
+                                                            ref={fileInputRef}
+                                                            onChange={handleFileChange}
+                                                            accept="image/*"
+                                                            className="hidden"
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <div className="space-y-6">
+                                                        <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-white border-2 border-didi-black/5">
+                                                            <img src={userImage} alt="Uploaded" className="w-full h-full object-contain" />
+                                                            <button
+                                                                onClick={() => { setUserImage(null); setStep(1); }}
+                                                                className="absolute top-4 right-4 bg-didi-red text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+                                                            >
+                                                                ✕
+                                                            </button>
+                                                        </div>
+
+                                                        {/* Optional BG Removal */}
+                                                        <div className="bg-white p-6 rounded-2xl border border-didi-black/5 shadow-sm">
+                                                            <p className="text-sm font-bold mb-4">{t('वैकल्पिक: पृष्ठभूमि हटाउनुहोस्', 'Optional: Remove Background')}</p>
+                                                            <button
+                                                                onClick={handleRemoveBg}
+                                                                disabled={isProcessing}
+                                                                className={`w-full py-4 rounded-xl font-black text-sm flex items-center justify-center gap-3 transition-all ${isProcessing ? 'bg-didi-gray text-didi-black/30' : 'bg-didi-black text-white hover:scale-[1.02] shadow-xl'}`}
+                                                            >
+                                                                {isProcessing ? (
+                                                                    <div className="flex flex-col items-center gap-2">
+                                                                        <div className="flex items-center gap-3">
+                                                                            <span className="animate-spin text-xl">✨</span>
+                                                                            <span>{progressStatus || t('प्रशोधन हुँदै...', 'Processing AI...')}</span>
+                                                                        </div>
+                                                                        <div className="w-48 h-1.5 bg-white/20 rounded-full overflow-hidden mt-1">
+                                                                            <motion.div
+                                                                                className="h-full bg-white"
+                                                                                initial={{ width: 0 }}
+                                                                                animate={{ width: `${progressPercent}%` }}
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                ) : (
+                                                                    <>
+                                                                        <span className="text-xl">✨</span>
+                                                                        {t('पृष्ठभूमि हटाउनुहोस् (AI)', 'Remove Background (AI)')}
+                                                                    </>
+                                                                )}
+                                                            </button>
+                                                            <p className="mt-4 text-[10px] text-center text-didi-black/40 uppercase tracking-widest leading-relaxed">
+                                                                {t('गोपनीयता ग्यारेन्टी: सर्भरमा डाटा पठाइँदैन', 'Privacy Guarantee: No data sent to servers')}
+                                                            </p>
+                                                        </div>
+
                                                         <button
-                                                            key={f.id}
                                                             onClick={() => {
-                                                                setSelectedFrame(f.src);
                                                                 setStep(2);
-                                                                // Pre-warm the AI engine by triggering a fetch of the assets
-                                                                // We don't need to wait for it, just let the browser start downloading
+                                                                // Pre-warm the AI engine for the next photo or future use
                                                                 removeBackground('', { model: 'isnet_quint8' }).catch(() => { });
                                                             }}
-                                                            className={`group relative aspect-square rounded-xl overflow-hidden border-4 transition-all ${selectedFrame === f.src ? 'border-didi-red shadow-lg' : 'border-transparent bg-white hover:border-didi-red/50'}`}
+                                                            className="w-full btn-primary py-4 shadow-xl hover:scale-[1.02] transition-all"
                                                         >
-                                                            <div className="absolute inset-0 bg-didi-red/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                                                                <span className="bg-didi-red text-white text-xs font-bold px-2 py-1 rounded">SELECT</span>
-                                                            </div>
-                                                            <div className="p-0 h-full w-full flex items-center justify-center relative translate-z-0">
-                                                                {/* Actual background image preview */}
-                                                                <img
-                                                                    src={f.src}
-                                                                    alt={f.name}
-                                                                    className="w-full h-full object-cover transition-transform group-hover:scale-110"
-                                                                />
-                                                                <div className="absolute bottom-0 left-0 right-0 bg-didi-red/80 text-white text-[8px] font-bold py-1 px-1 text-center truncate">
-                                                                    {f.name}
-                                                                </div>
-                                                            </div>
+                                                            {t('अर्को: फ्रेम छनोट गर्नुहोस्', 'Next: Choose Frame')} →
                                                         </button>
-                                                    ))}
-                                                </div>
+                                                    </div>
+                                                )}
                                             </motion.div>
                                         )}
 
-                                        {/* Step 2: Photo Upload */}
+                                        {/* Step 2: Frame Selection (Horizontal Carousel) */}
                                         {step === 2 && (
                                             <motion.div
                                                 key="step2"
                                                 initial={{ opacity: 0, x: 20 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -20 }}
-                                                className="text-center py-8"
                                             >
-                                                <h3 className="text-xl font-bold mb-6 text-left flex items-center gap-2">
-                                                    <span className="text-didi-red">★</span> {t('फोटो अपलोड गर्नुहोस्', '2. Upload Photo')}
+                                                <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                                                    <span className="text-didi-red">★</span> {t('फ्रेम छनोट गर्नुहोस्', '2. Choose Support Frame')}
                                                 </h3>
-                                                <div
-                                                    onClick={() => fileInputRef.current?.click()}
-                                                    className="aspect-square w-full max-w-[300px] mx-auto border-4 border-dashed border-didi-red/20 rounded-3xl flex flex-col items-center justify-center gap-4 cursor-pointer hover:bg-didi-red/5 transition-colors group"
-                                                >
-                                                    <div className="text-5xl group-hover:scale-110 transition-transform">📸</div>
-                                                    <p className="font-bold text-didi-black/60">{t('फोटो यहाँ तान्नुहोस् वा छुनुहोस्', 'Click to Upload Photo')}</p>
-                                                    <input
-                                                        type="file"
-                                                        ref={fileInputRef}
-                                                        onChange={handleFileChange}
-                                                        accept="image/*"
-                                                        className="hidden"
-                                                    />
+
+                                                {/* Frame Carousel */}
+                                                <div className="relative group">
+                                                    <div className="flex overflow-x-auto gap-4 pb-6 snap-x no-scrollbar">
+                                                        {FRAMES.map((f) => (
+                                                            <button
+                                                                key={f.id}
+                                                                onClick={() => {
+                                                                    setSelectedFrame(f.src);
+                                                                    setStep(3);
+                                                                }}
+                                                                className={`flex-none w-48 snap-center group relative aspect-square rounded-2xl overflow-hidden border-4 transition-all ${selectedFrame === f.src ? 'border-didi-red shadow-xl scale-[1.05]' : 'border-transparent bg-white hover:border-didi-red/50 shadow-md'}`}
+                                                            >
+                                                                <div className="absolute inset-0 bg-didi-red/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                                                                    <span className="bg-didi-red text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">SELECT</span>
+                                                                </div>
+                                                                <img
+                                                                    src={f.src}
+                                                                    alt={f.name}
+                                                                    className="w-full h-full object-cover p-2"
+                                                                />
+                                                                <div className="absolute bottom-0 left-0 right-0 bg-didi-red/90 text-white text-[10px] font-black py-2 px-1 text-center truncate">
+                                                                    {f.name.toUpperCase()}
+                                                                </div>
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                    {/* Hint for scrolling */}
+                                                    <div className="flex justify-center gap-1 mt-2">
+                                                        {FRAMES.map((_, i) => (
+                                                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-didi-red/20" />
+                                                        ))}
+                                                    </div>
                                                 </div>
+
                                                 <button
                                                     onClick={() => setStep(1)}
-                                                    className="mt-8 text-sm font-bold text-didi-red hover:underline"
+                                                    className="mt-8 text-sm font-bold text-didi-red hover:underline flex items-center gap-2 mx-auto"
                                                 >
-                                                    ← {t('फ्रेम परिवर्तन गर्नुहोस्', 'Change Frame')}
+                                                    ← {t('फोटो परिवर्तन गर्नुहोस्', 'Change Photo')}
                                                 </button>
                                             </motion.div>
                                         )}
 
-                                        {/* Step 3: Editing Controls */}
+                                        {/* Step 3: Polish & Download */}
                                         {step === 3 && (
                                             <motion.div
                                                 key="step3"
@@ -243,93 +308,35 @@ export default function SupportPage() {
                                                 className="space-y-8"
                                             >
                                                 <h3 className="text-xl font-bold flex items-center gap-2">
-                                                    <span className="text-didi-red">★</span> {t('समायोजन गर्नुहोस्', '3. Adjust & Polish')}
+                                                    <span className="text-didi-red">★</span> {t('समायोजन गर्नुहोस्', '3. Adjust & Download')}
                                                 </h3>
 
-                                                <p className="text-sm text-didi-black/50 bg-white p-3 rounded-lg border border-didi-black/5">
-                                                    💡 <strong>{t('टिप:', 'Tip:')}</strong> {t('तपाईं आफ्नो फोटोलाई तान्न (drag), घुमाउन (rotate) र कुनाहरूबाट आकार परिवर्तन (resize) गर्न सक्नुहुन्छ।', 'You can drag, rotate, and resize your photo directly on the canvas.')}
-                                                </p>
-
-                                                {/* Zoom Control */}
-                                                <div>
-                                                    <label className="block text-sm font-bold mb-3 flex justify-between">
-                                                        <span>{t('जुम', 'Zoom')}</span>
-                                                        <span className="text-didi-red">{(zoom * 100).toFixed(0)}%</span>
-                                                    </label>
-                                                    <input
-                                                        type="range"
-                                                        min="0.5"
-                                                        max="3"
-                                                        step="0.01"
-                                                        value={zoom}
-                                                        onChange={(e) => setZoom(parseFloat(e.target.value))}
-                                                        className="w-full accent-didi-red"
-                                                    />
-                                                </div>
-
-                                                {/* Rotation Control - Simplified */}
-                                                <div>
-                                                    <label className="block text-sm font-bold mb-3 flex justify-between">
-                                                        <span>{t('घुमाउनुहोस्', 'Rotation')}</span>
-                                                        <span className="text-didi-red">{rotation}°</span>
-                                                    </label>
-                                                    <input
-                                                        type="range"
-                                                        min="0"
-                                                        max="360"
-                                                        step="1"
-                                                        value={rotation}
-                                                        onChange={(e) => setRotation(parseFloat(e.target.value))}
-                                                        className="w-full accent-didi-red"
-                                                    />
-                                                </div>
-
-                                                {/* AI Background Removal */}
-                                                <div className="pt-4 border-t border-didi-black/5">
-                                                    <button
-                                                        onClick={handleRemoveBg}
-                                                        disabled={isProcessing}
-                                                        className={`w-full py-4 rounded-xl font-black text-sm flex items-center justify-center gap-3 transition-all ${isProcessing ? 'bg-didi-gray text-didi-black/30' : 'bg-didi-black text-white hover:scale-[1.02] shadow-xl'}`}
-                                                    >
-                                                        {isProcessing ? (
-                                                            <div className="flex flex-col items-center gap-2">
-                                                                <div className="flex items-center gap-3">
-                                                                    <span className="animate-spin text-xl">✨</span>
-                                                                    <span>{progressStatus || t('प्रशोधन हुँदै...', 'Processing AI...')}</span>
-                                                                </div>
-                                                                <div className="w-48 h-1.5 bg-white/20 rounded-full overflow-hidden mt-1">
-                                                                    <motion.div
-                                                                        className="h-full bg-white"
-                                                                        initial={{ width: 0 }}
-                                                                        animate={{ width: `${progressPercent}%` }}
-                                                                    />
-                                                                </div>
-                                                            </div>
-                                                        ) : (
-                                                            <>
-                                                                <span className="text-xl">✨</span>
-                                                                {t('पृष्ठभूमि हटाउनुहोस् (AI)', 'Remove Background (AI)')}
-                                                            </>
-                                                        )}
-                                                    </button>
-                                                    <p className="mt-4 text-[10px] text-center text-didi-black/40 uppercase tracking-widest leading-relaxed">
-                                                        {t('गोपनीयता ग्यारेन्टी: सर्भरमा डाटा पठाइँदैन', 'Privacy Guarantee: No data sent to servers')}
+                                                <div className="bg-white p-4 rounded-2xl border border-didi-black/5 shadow-sm space-y-4">
+                                                    <p className="text-sm text-didi-black/60 font-medium">
+                                                        💡 <strong>{t('टिप:', 'Tip:')}</strong> {t('तपाईं आफ्नो फोटोलाई तान्न (drag), घुमाउन (rotate) र कुनाहरूबाट आकार परिवर्तन (resize) गर्न सक्नुहुन्छ। फ्रेम फिक्स गरिएको छ।', 'You can drag, rotate, and resize your photo directly on the canvas. The frame is fixed.')}
                                                     </p>
+
+                                                    <button
+                                                        onClick={() => setStep(2)}
+                                                        className="w-full py-3 border-2 border-didi-red/10 rounded-xl text-didi-red font-bold hover:bg-didi-red/5 transition-colors text-sm"
+                                                    >
+                                                        🎨 {t('अर्को फ्रेम प्रयास गर्नुहोस्', 'Try Another Frame')}
+                                                    </button>
                                                 </div>
 
-                                                {/* Final Actions - Side by Side & Smaller */}
+                                                {/* Final Actions */}
                                                 <div className="pt-6 border-t border-didi-black/5 flex gap-3">
                                                     <button
                                                         onClick={handleDownload}
-                                                        className="flex-1 btn-primary flex items-center justify-center gap-2 py-3 text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
+                                                        className="flex-[2] btn-primary flex items-center justify-center gap-2 py-4 text-base shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
                                                     >
-                                                        <span>💾</span> {t('डाउनलोड', 'Download')}
+                                                        <span>💾</span> {t('डाउनलोड गर्नुहोस्', 'Download Frame')}
                                                     </button>
                                                     <button
                                                         onClick={() => { setStep(1); setSelectedFrame(null); setUserImage(null); setZoom(1); setRotation(0); }}
-                                                        className="px-4 btn-outline bg-white py-3 shadow-sm hover:bg-didi-gray transition-all text-xs whitespace-nowrap"
+                                                        className="flex-1 btn-outline bg-white py-4 shadow-sm hover:bg-didi-gray transition-all text-sm font-bold"
                                                     >
-                                                        {t('फेरि सुरु', 'Reset')}
+                                                        {t('रिसेट', 'Reset')}
                                                     </button>
                                                 </div>
                                             </motion.div>

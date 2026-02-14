@@ -25,13 +25,18 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
 }) => {
     const [uImg] = useImage(userImageSrc || '', 'anonymous')
     const [fImg] = useImage(frameSrc || '', 'anonymous')
-    const imageRef = useRef<any>(null)
+
+    const userImgRef = useRef<any>(null)
+    const frameImgRef = useRef<any>(null)
     const trRef = useRef<any>(null)
     const containerRef = useRef<HTMLDivElement>(null)
+
     const [stageSize, setStageSize] = useState({ width: 600, height: 600, scale: 1 })
 
-    // Center image when loaded
-    const [pos, setPos] = useState({ x: 300, y: 300 })
+    // User Photo State
+    const [photoPos, setPhotoPos] = useState({ x: 300, y: 300 })
+    const [photoScale, setPhotoScale] = useState(1)
+    const [photoRotation, setPhotoRotation] = useState(0)
 
     useEffect(() => {
         const handleResize = () => {
@@ -40,7 +45,7 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
                 const scale = width / 600
                 setStageSize({
                     width: width,
-                    height: width, // maintain square
+                    height: width,
                     scale: scale
                 })
             }
@@ -51,16 +56,19 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    // When a new image is uploaded, center it
     useEffect(() => {
         if (uImg) {
-            setPos({ x: 300, y: 300 })
+            setPhotoPos({ x: 300, y: 300 })
+            setPhotoRotation(0)
+            setPhotoScale(1)
             setIsSelected(true)
         }
     }, [uImg, setIsSelected])
 
     useEffect(() => {
-        if (isSelected && trRef.current && imageRef.current) {
-            trRef.current.nodes([imageRef.current])
+        if (isSelected && trRef.current && userImgRef.current) {
+            trRef.current.nodes([userImgRef.current])
             trRef.current.getLayer().batchDraw()
         }
     }, [isSelected, uImg])
@@ -88,37 +96,55 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
                 }}
             >
                 <Layer>
-                    {/* Frame Background (Drawn First) */}
-                    {fImg && (
-                        <KonvaImage
-                            image={fImg}
-                            width={600}
-                            height={600}
-                            listening={false}
-                        />
-                    )}
-
-                    {/* User Photo (Drawn Second - On Top) */}
+                    {/* 1. Base Layer: User Photo (Interactive) */}
                     {uImg && (
                         <KonvaImage
                             image={uImg}
-                            ref={imageRef}
-                            x={pos.x}
-                            y={pos.y}
-                            width={uImg.width * (300 / Math.min(uImg.width, uImg.height)) * zoom}
-                            height={uImg.height * (300 / Math.min(uImg.width, uImg.height)) * zoom}
-                            offsetX={(uImg.width * (300 / Math.min(uImg.width, uImg.height)) * zoom) / 2}
-                            offsetY={(uImg.height * (300 / Math.min(uImg.width, uImg.height)) * zoom) / 2}
-                            rotation={rotation}
+                            ref={userImgRef}
+                            x={photoPos.x}
+                            y={photoPos.y}
+                            width={uImg.width * (600 / Math.min(uImg.width, uImg.height)) * photoScale}
+                            height={uImg.height * (600 / Math.min(uImg.width, uImg.height)) * photoScale}
+                            offsetX={(uImg.width * (600 / Math.min(uImg.width, uImg.height)) * photoScale) / 2}
+                            offsetY={(uImg.height * (600 / Math.min(uImg.width, uImg.height)) * photoScale) / 2}
+                            rotation={photoRotation}
                             draggable
                             onClick={() => setIsSelected(true)}
                             onTap={() => setIsSelected(true)}
                             onDragStart={() => setIsSelected(true)}
+                            onDragEnd={(e) => {
+                                setPhotoPos({
+                                    x: e.target.x(),
+                                    y: e.target.y()
+                                })
+                            }}
+                            onTransformEnd={(e) => {
+                                const node = userImgRef.current
+                                const scaleX = node.scaleX()
+                                setPhotoScale(prev => prev * scaleX)
+                                setPhotoRotation(node.rotation())
+
+                                node.scaleX(1)
+                                node.scaleY(1)
+                            }}
                         />
                     )}
 
-                    {/* Transformer Handles */}
-                    {isSelected && (
+                    {/* 2. Top Layer: Frame Overlay (Fixed & Non-interactive) */}
+                    {fImg && (
+                        <KonvaImage
+                            image={fImg}
+                            ref={frameImgRef}
+                            x={0}
+                            y={0}
+                            width={600}
+                            height={600}
+                            listening={false} // Frame is always static and non-clickable
+                        />
+                    )}
+
+                    {/* Transformer Handles on the User Photo */}
+                    {isSelected && uImg && (
                         <Transformer
                             ref={trRef}
                             rotateEnabled={true}
@@ -134,10 +160,17 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
                 </Layer>
             </Stage>
 
-            {!userImageSrc && !frameSrc && (
+            {!userImageSrc && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-didi-black/40 p-8 text-center pointer-events-none">
-                    <div className="text-6xl mb-4">🖼️</div>
-                    <p className="font-bold">Select a background and upload your photo to preview</p>
+                    <div className="text-6xl mb-4">📸</div>
+                    <p className="font-bold">Upload your photo first to start</p>
+                </div>
+            )}
+
+            {userImageSrc && !frameSrc && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-didi-red/60 p-8 text-center pointer-events-none bg-white/10 backdrop-blur-[2px]">
+                    <div className="text-4xl mb-4">✨</div>
+                    <p className="font-bold">Now choose a support frame</p>
                 </div>
             )}
         </div>

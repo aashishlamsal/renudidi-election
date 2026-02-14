@@ -107,13 +107,13 @@ export default function Hero() {
             transition={{ delay: 0.7 }}
             className="flex flex-col md:flex-row gap-4 justify-center items-center"
           >
-            <a href="#join" className="btn-primary w-full md:w-auto">
+            <a href="/support" className="btn-primary w-full md:w-auto">
               {t(hero.ctas[0].text.ne, hero.ctas[0].text.en)}
             </a>
             <a href="#join" className="btn-secondary w-full md:w-auto">
               {t(hero.ctas[1].text.ne, hero.ctas[1].text.en)}
             </a>
-            <a href="#why-didi" className="btn-outline w-full md:w-auto">
+            <a href="/support" className="btn-outline w-full md:w-auto">
               {t(hero.ctas[2].text.ne, hero.ctas[2].text.en)}
             </a>
           </motion.div>
