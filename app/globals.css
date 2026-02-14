@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  body {
+    @apply bg-white text-didi-black font-sans;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-didi-red text-white font-bold px-8 py-4 rounded-xl hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-didi-red/50;
+  }
+
+  .btn-secondary {
+    @apply bg-didi-black text-white font-bold px-8 py-4 rounded-xl hover:scale-105 transition-transform duration-200;
+  }
+
+  .btn-outline {
+    @apply border-2 border-didi-red text-didi-red font-bold px-8 py-4 rounded-xl hover:bg-didi-red hover:text-white transition-all duration-200;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-black mb-4;
+  }
+
+  .bilingual-text {
+    @apply flex flex-col gap-1;
+  }
+
+  .text-nepali {
+    @apply font-nepali font-bold;
+  }
+
+  .text-english {
+    @apply text-sm md:text-base opacity-85 font-medium;
+  }
+
+  .star-divider {
+    @apply flex items-center gap-4 my-8 text-didi-gold;
+  }
+
+  .star-divider::after,
+  .star-divider::before {
+    content: '';
+    @apply flex-1 h-px bg-gradient-to-r from-transparent via-didi-gold to-transparent;
+  }
+
+  .container-custom {
+    @apply max-w-container mx-auto px-4 md:px-8;
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(255, 199, 0, 0.5);
+  }
+
+
+}
+
+/* Floating stars animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-40px) translateX(-10px);
+    opacity: 0.3;
+  }
+
+  75% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E60000;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cc0000;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  @apply outline-2 outline-offset-2 outline-didi-red;
+}
+
+/* Star particles */
+.star-particle {
+  position: absolute;
+  color: #FF0000;
+  opacity: 0.2;
+  font-size: 24px;
+  pointer-events: none;
+}
