@@ -22,9 +22,7 @@ export default function WhyDidi() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="star-divider max-w-md mx-auto">
-            <span className="text-2xl">★</span>
-          </div>
+          <div className="max-w-md mx-auto h-1 bg-gradient-to-r from-transparent via-didi-red/20 to-transparent mb-8" />
           <h2 className="section-title">
             <div className={`text-didi-red ${language === 'ne' ? 'font-nepali' : ''}`}>
               {t(whyDidi.title.ne, whyDidi.title.en)}
@@ -54,8 +52,8 @@ export default function WhyDidi() {
               <span className={language === 'ne' ? 'font-nepali' : ''}>
                 {t('दृष्टिकोण हेर्नुहोस्', 'View Vision')}
               </span>
-              <span className="text-didi-red group-hover:scale-125 transition-transform">
-                ★
+              <span className="text-didi-red group-hover:translate-x-1 transition-transform">
+                →
               </span>
             </a>
           </motion.div>
@@ -74,11 +72,8 @@ export default function WhyDidi() {
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.1 * idx }}
                 whileHover={{ x: 10 }}
-                className="bg-white p-5 rounded-2xl shadow-md border-l-4 border-didi-red flex items-center gap-5 transition-all duration-300"
+                className="bg-white p-6 rounded-2xl shadow-md border-l-4 border-didi-red hover:bg-didi-red/5 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-full bg-didi-red/10 flex items-center justify-center shrink-0">
-                  <span className="text-xl text-didi-red">★</span>
-                </div>
                 <div className={`text-lg font-bold text-didi-black leading-tight ${language === 'ne' ? 'font-nepali' : ''}`}>
                   {t(point.ne, point.en)}
                 </div>

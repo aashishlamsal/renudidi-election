@@ -63,7 +63,6 @@ export default function DebunkAllegations() {
                                 <div className="flex items-start justify-between gap-4">
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-2">
-                                            <span className="text-didi-red text-2xl">★</span>
                                             <div className={`font-bold text-xl text-didi-black ${language === 'ne' ? 'font-nepali' : ''}`}>
                                                 {t(allegation.claim.ne, allegation.claim.en)}
                                             </div>
@@ -104,7 +103,6 @@ export default function DebunkAllegations() {
                                     {/* Facts Section */}
                                     <div>
                                         <div className="flex items-center gap-2 mb-4">
-                                            <span className="text-didi-red text-xl">★</span>
                                             <div className="font-bold text-didi-red uppercase tracking-wide text-sm">
                                                 {t('तथ्यहरू', 'Supporting Facts')}
                                             </div>

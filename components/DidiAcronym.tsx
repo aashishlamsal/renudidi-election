@@ -4,9 +4,11 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import content from '@/content.json'
+import { useLanguage } from '@/lib/LanguageContext'
 
 export default function DidiAcronym() {
   const { acronym } = content
+  const { language, t } = useLanguage()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [expandedCard, setExpandedCard] = useState<number | null>(null)
@@ -95,7 +97,7 @@ export default function DidiAcronym() {
                         key={pointIdx}
                         className="flex items-start gap-3 text-didi-black/80"
                       >
-                        <span className="text-didi-red mt-1">★</span>
+                        <span className="text-didi-red mt-1 block">●</span>
                         <div>
                           <div className="font-nepali font-semibold">
                             {point.ne}
@@ -109,8 +111,8 @@ export default function DidiAcronym() {
 
                 {/* Expand Indicator */}
                 {!expandedCard && (
-                  <div className="mt-4 text-didi-red/60 text-sm font-semibold">
-                    Click to expand <span className="text-didi-red">★</span>
+                  <div className="mt-4 text-didi-red/60 text-sm font-semibold flex items-center gap-2">
+                    {t('थप हेर्न क्लिक गर्नुहोस्', 'Click to expand')} <span className="text-didi-red">→</span>
                   </div>
                 )}
               </div>

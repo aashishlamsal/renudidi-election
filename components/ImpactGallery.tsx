@@ -79,10 +79,10 @@ export default function ImpactGallery() {
               {/* Caption */}
               <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                 <div className={`font-bold text-white text-lg mb-1 ${language === 'ne' ? 'font-nepali' : ''}`}>
-                  {t(item.caption.ne.replace(' ★', ''), item.caption.en.replace(' ★', ''))}
+                  {t(item.caption.ne, item.caption.en)}
                 </div>
-                <div className="text-didi-red mt-2 text-sm font-semibold">
-                  {t('विस्तार गर्न क्लिक गर्नुहोस् ', 'Click to expand ')}<span className="text-didi-red">★</span>
+                <div className="text-didi-red mt-2 text-sm font-semibold flex items-center gap-2">
+                  {t('विस्तार गर्न क्लिक गर्नुहोस्', 'Click to expand')} <span>→</span>
                 </div>
               </div>
             </motion.div>
@@ -110,13 +110,13 @@ export default function ImpactGallery() {
 
             {/* Image Container */}
             <div className="relative aspect-video bg-gradient-to-br from-didi-red/80 to-didi-black/90 rounded-2xl overflow-hidden flex items-center justify-center">
-              <div className="text-white/20 text-9xl">★</div>
+              <div className="text-white/20 text-9xl">DIDI</div>
             </div>
 
             {/* Caption */}
             <div className="mt-6 text-center">
               <div className={`font-bold text-white text-2xl mb-2 ${language === 'ne' ? 'font-nepali' : ''}`}>
-                {t(impact.gallery[selectedImage].caption.ne.replace(' ★', ''), impact.gallery[selectedImage].caption.en.replace(' ★', ''))}
+                {t(impact.gallery[selectedImage].caption.ne, impact.gallery[selectedImage].caption.en)}
               </div>
             </div>
 
