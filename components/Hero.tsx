@@ -113,9 +113,6 @@ export default function Hero() {
             <a href="#join" className="btn-secondary w-full md:w-auto">
               {t(hero.ctas[1].text.ne, hero.ctas[1].text.en)}
             </a>
-            <a href="/support" className="btn-outline w-full md:w-auto">
-              {t(hero.ctas[2].text.ne, hero.ctas[2].text.en)}
-            </a>
           </motion.div>
 
           {/* Scroll Indicator */}

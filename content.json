@@ -28,17 +28,10 @@
       },
       {
         "text": {
-          "ne": "Join the DIDI Movement ★",
-          "en": "Join the Movement ★"
+          "ne": "सुझाव र गुनासो ★",
+          "en": "Suggestions ★"
         },
         "variant": "secondary"
-      },
-      {
-        "text": {
-          "ne": "Show Your Support ★",
-          "en": "Show Support ★"
-        },
-        "variant": "outline"
       }
     ]
   },
@@ -435,27 +428,27 @@
       {
         "ne": "महिला सशक्तीकरण",
         "en": "Women Empowerment",
-        "icon": "👩"
+        "icon": "Users"
       },
       {
         "ne": "युवा रोजगारी",
         "en": "Youth Employment",
-        "icon": "💼"
+        "icon": "Briefcase"
       },
       {
         "ne": "स्थानीय विकास",
         "en": "Local Development",
-        "icon": "🏗️"
+        "icon": "Building2"
       },
       {
         "ne": "सुशासन र पारदर्शिता",
         "en": "Good Governance",
-        "icon": "⚖️"
+        "icon": "Scale"
       },
       {
         "ne": "प्रगतिशील नेपाल",
         "en": "Progressive Nepal",
-        "icon": "🇳🇵"
+        "icon": "TrendingUp"
       }
     ]
   },

@@ -3,8 +3,17 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { Users, Briefcase, Building2, Scale, TrendingUp } from 'lucide-react'
 import content from '@/content.json'
 import { useLanguage } from '@/lib/LanguageContext'
+
+const IconMap: Record<string, any> = {
+  Users,
+  Briefcase,
+  Building2,
+  Scale,
+  TrendingUp
+}
 
 export default function Manifesto() {
   const { manifesto } = content
@@ -43,29 +52,34 @@ export default function Manifesto() {
 
         {/* 5 Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto mt-16">
-          {manifesto.pillars.map((pillar, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * idx }}
-              whileHover={{ scale: 1.05, y: -10 }}
-              className="bg-gradient-to-b from-didi-gray to-white p-6 rounded-2xl border-2 border-didi-black/10 hover:border-didi-red transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              {/* Icon */}
-              <div className="text-5xl mb-4 text-center">{pillar.icon}</div>
-
-              {/* Title */}
-              <div className="text-center">
-                <div className={`font-bold text-didi-black text-lg ${language === 'ne' ? 'font-nepali' : ''}`}>
-                  {t(pillar.ne, pillar.en)}
+          {manifesto.pillars.map((pillar, idx) => {
+            const IconComponent = IconMap[pillar.icon] || Users
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 * idx }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="bg-gradient-to-b from-didi-gray to-white p-6 rounded-3xl border-2 border-didi-black/5 hover:border-didi-red transition-all duration-300 shadow-lg hover:shadow-xl flex flex-col items-center group"
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-didi-black/5 flex items-center justify-center mb-6 text-didi-red group-hover:scale-110 transition-transform">
+                  <IconComponent size={32} strokeWidth={1.5} />
                 </div>
-              </div>
 
-              {/* Star */}
-              <div className="text-center mt-4 text-didi-red text-2xl">★</div>
-            </motion.div>
-          ))}
+                {/* Title */}
+                <div className="text-center">
+                  <div className={`font-black text-didi-black text-sm uppercase tracking-wider mb-2 ${language === 'ne' ? 'font-nepali' : ''}`}>
+                    {t(pillar.ne, pillar.en)}
+                  </div>
+                </div>
+
+                {/* Star */}
+                <div className="text-center mt-auto text-didi-red/20 text-xl group-hover:text-didi-red transition-colors">★</div>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* CTAs */}
