@@ -44,22 +44,26 @@
       "ne": "DIDI भन्नाले विश्वास, साथ, र नेतृत्व हो। यो सम्बन्ध हो, आन्दोलन हो, र परिवर्तनको प्रतिबद्धता हो।",
       "en": "DIDI means trust, companionship, and leadership. It's a relationship, a movement, and a commitment to change."
     },
-    "chips": [
+    "points": [
       {
-        "ne": "विश्वास ★",
-        "en": "Trust ★"
+        "ne": "पुरानो र नयाँ पुस्ता दुवैको प्रतिनिधित्व",
+        "en": "Represents both older and new generations"
       },
       {
-        "ne": "मार्गदर्शन ★",
-        "en": "Guidance ★"
+        "ne": "आधुनिक र नागरिक केन्द्रित विकासको प्रमाणित नमुना",
+        "en": "Proven model of modern, citizen-focused development"
       },
       {
-        "ne": "शक्ति ★",
-        "en": "Strength ★"
+        "ne": "चितवनलाई केन्द्रीय शहरी केन्द्र बनाउने अनुभव",
+        "en": "Experience to elevate Chitwan as a central urban hub"
       },
       {
-        "ne": "सँगै ★",
-        "en": "Together ★"
+        "ne": "पारदर्शिता र सामाजिक न्यायका लागि प्रतिबद्धता",
+        "en": "Commitment to transparency and social justice"
+      },
+      {
+        "ne": "जनमुखी राजनीतिक दर्शन",
+        "en": "People-centric political philosophy"
       }
     ]
   },
