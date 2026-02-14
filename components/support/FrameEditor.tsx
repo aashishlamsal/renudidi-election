@@ -2,13 +2,16 @@
 
 import React, { useRef, useEffect, useState } from 'react'
 import { Stage, Layer, Image as KonvaImage, Transformer } from 'react-konva'
+import { motion } from 'framer-motion'
 import useImage from 'use-image'
 
 interface FrameEditorProps {
     userImageSrc: string | null
     frameSrc: string | null
     zoom: number
+    setZoom: (v: number) => void
     rotation: number
+    setRotation: (v: number) => void
     stageRef: React.RefObject<any>
     isSelected: boolean
     setIsSelected: (selected: boolean) => void
@@ -18,7 +21,9 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
     userImageSrc,
     frameSrc,
     zoom,
+    setZoom,
     rotation,
+    setRotation,
     stageRef,
     isSelected,
     setIsSelected
@@ -35,8 +40,6 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
 
     // User Photo State
     const [photoPos, setPhotoPos] = useState({ x: 300, y: 300 })
-    const [photoScale, setPhotoScale] = useState(1)
-    const [photoRotation, setPhotoRotation] = useState(0)
 
     useEffect(() => {
         const handleResize = () => {
@@ -60,11 +63,11 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
     useEffect(() => {
         if (uImg) {
             setPhotoPos({ x: 300, y: 300 })
-            setPhotoRotation(0)
-            setPhotoScale(1)
+            setRotation(0)
+            setZoom(1)
             setIsSelected(true)
         }
-    }, [uImg, setIsSelected])
+    }, [uImg, setIsSelected, setRotation, setZoom])
 
     useEffect(() => {
         if (isSelected && trRef.current && userImgRef.current) {
@@ -103,11 +106,11 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
                             ref={userImgRef}
                             x={photoPos.x}
                             y={photoPos.y}
-                            width={uImg.width * (600 / Math.min(uImg.width, uImg.height)) * photoScale}
-                            height={uImg.height * (600 / Math.min(uImg.width, uImg.height)) * photoScale}
-                            offsetX={(uImg.width * (600 / Math.min(uImg.width, uImg.height)) * photoScale) / 2}
-                            offsetY={(uImg.height * (600 / Math.min(uImg.width, uImg.height)) * photoScale) / 2}
-                            rotation={photoRotation}
+                            width={uImg.width * (600 / Math.min(uImg.width, uImg.height)) * zoom}
+                            height={uImg.height * (600 / Math.min(uImg.width, uImg.height)) * zoom}
+                            offsetX={(uImg.width * (600 / Math.min(uImg.width, uImg.height)) * zoom) / 2}
+                            offsetY={(uImg.height * (600 / Math.min(uImg.width, uImg.height)) * zoom) / 2}
+                            rotation={rotation}
                             draggable
                             onClick={() => setIsSelected(true)}
                             onTap={() => setIsSelected(true)}
@@ -121,8 +124,8 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
                             onTransformEnd={(e) => {
                                 const node = userImgRef.current
                                 const scaleX = node.scaleX()
-                                setPhotoScale(prev => prev * scaleX)
-                                setPhotoRotation(node.rotation())
+                                setZoom(zoom * scaleX)
+                                setRotation(node.rotation())
 
                                 node.scaleX(1)
                                 node.scaleY(1)
@@ -160,17 +163,18 @@ const FrameEditor: React.FC<FrameEditorProps> = ({
                 </Layer>
             </Stage>
 
+            {/* Empty State Overlay */}
             {!userImageSrc && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-didi-black/40 p-8 text-center pointer-events-none">
-                    <div className="text-6xl mb-4">📸</div>
-                    <p className="font-bold">Upload your photo first to start</p>
-                </div>
-            )}
-
-            {userImageSrc && !frameSrc && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-didi-red/60 p-8 text-center pointer-events-none bg-white/10 backdrop-blur-[2px]">
-                    <div className="text-4xl mb-4">✨</div>
-                    <p className="font-bold">Now choose a support frame</p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-didi-red/40 p-8 text-center pointer-events-none">
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="flex flex-col items-center"
+                    >
+                        <div className="text-6xl mb-4 animate-bounce">📸</div>
+                        <p className="font-black uppercase tracking-tighter text-2xl mb-1">{frameSrc ? 'Frame Selected' : 'Choose Frame'}</p>
+                        <p className="font-bold text-sm opacity-60">ADD PHOTO TO START ★</p>
+                    </motion.div>
                 </div>
             )}
         </div>

@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/lib/LanguageContext'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,19 +22,18 @@ export default function Header() {
 
   const navLinks = [
     { ne: 'गृहपृष्ठ', en: 'Home', href: '/' },
-    { ne: 'DIDI', en: 'DIDI', href: '#why-didi' },
-    { ne: 'दृष्टिकोण', en: 'Vision', href: '#didi-acronym' },
-    { ne: 'प्रभाव', en: 'Impact', href: '#impact' },
-    { ne: 'तथ्य', en: 'Facts', href: '#facts' },
-    { ne: 'घोषणापत्र', en: 'Manifesto', href: '#manifesto' },
-    { ne: 'समर्थन फ्रेम', en: 'Support Frame', href: '/support' },
+    { ne: 'DIDI', en: 'DIDI', href: isHome ? '#why-didi' : '/#why-didi' },
+    { ne: 'दृष्टिकोण', en: 'Vision', href: isHome ? '#didi-acronym' : '/#didi-acronym' },
+    { ne: 'प्रभाव', en: 'Impact', href: isHome ? '#impact' : '/#impact' },
+    { ne: 'तथ्य', en: 'Facts', href: isHome ? '#facts' : '/#facts' },
+    { ne: 'घोषणापत्र', en: 'Manifesto', href: isHome ? '#manifesto' : '/#manifesto' },
   ]
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-didi-black/70 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-didi-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
         }`}
     >
       <nav className="container-custom py-4">
