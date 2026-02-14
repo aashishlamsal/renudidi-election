@@ -61,54 +61,85 @@ export default function Manifesto() {
         {/* Accordion/Tabs Container */}
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 min-h-[500px]">
-            {/* Left Side: Navigation Links */}
+            {/* Left Side: Navigation Links (Accordion on Mobile) */}
             <div className="w-full lg:w-2/5 space-y-3">
               {manifesto.pillars.map((pillar, idx) => {
                 const isActive = activeTab === idx
                 const IconComponent = IconMap[pillar.icon] || Users
 
                 return (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveTab(idx)}
-                    className={`w-full text-left p-6 rounded-2xl transition-all duration-300 flex items-center gap-6 group relative overflow-hidden ${isActive
-                      ? 'bg-didi-black text-white shadow-2xl scale-[1.02] z-10'
-                      : 'bg-didi-gray hover:bg-didi-red/10 border-2 border-transparent'
-                      }`}
-                  >
-                    {isActive && (
-                      <motion.div
-                        layoutId="active-pill"
-                        className="absolute inset-0 bg-didi-black"
-                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  <div key={idx} className="space-y-2">
+                    <button
+                      onClick={() => setActiveTab(idx)}
+                      className={`w-full text-left p-6 rounded-2xl transition-all duration-300 flex items-center gap-6 group relative overflow-hidden ${isActive
+                        ? 'bg-didi-black text-white shadow-2xl scale-[1.02] z-10'
+                        : 'bg-didi-gray hover:bg-didi-red/10 border-2 border-transparent'
+                        }`}
+                    >
+                      {isActive && (
+                        <motion.div
+                          layoutId="active-pill"
+                          className="absolute inset-0 bg-didi-black"
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                        />
+                      )}
+
+                      <div className={`relative z-10 p-3 rounded-xl transition-colors ${isActive ? 'bg-didi-red text-white' : 'bg-white text-didi-red shadow-sm group-hover:bg-didi-red group-hover:text-white'
+                        }`}>
+                        <IconComponent size={24} strokeWidth={2} />
+                      </div>
+
+                      <div className="relative z-10 flex-1">
+                        <div className={`text-xs font-black tracking-widest uppercase mb-1 opacity-50 ${isActive ? 'text-didi-red' : 'text-didi-black'}`}>
+                          {t(`बुँदा #${idx + 1}`, `POINT #${idx + 1}`)}
+                        </div>
+                        <div className={`text-lg font-black leading-tight ${language === 'ne' ? 'font-nepali' : ''} ${isActive ? 'text-white' : 'text-didi-black'}`}>
+                          {t(pillar.ne, pillar.en)}
+                        </div>
+                      </div>
+
+                      <ChevronRight
+                        size={20}
+                        className={`relative z-10 transition-transform duration-300 ${isActive ? 'rotate-90 lg:rotate-0 translate-x-0 opacity-100 text-didi-red' : '-translate-x-4 opacity-0 text-didi-black'}`}
                       />
-                    )}
+                    </button>
 
-                    <div className={`relative z-10 p-3 rounded-xl transition-colors ${isActive ? 'bg-didi-red text-white' : 'bg-white text-didi-red shadow-sm group-hover:bg-didi-red group-hover:text-white'
-                      }`}>
-                      <IconComponent size={24} strokeWidth={2} />
-                    </div>
+                    {/* Mobile Only: Expanded Details */}
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="lg:hidden overflow-hidden"
+                        >
+                          <div className="p-6 bg-didi-gray rounded-2xl space-y-4 border-2 border-didi-black/5">
+                            {(() => {
+                              const description = (pillar as any).description
+                              const points = Array.isArray(t(description.ne, description.en))
+                                ? t(description.ne, description.en)
+                                : [t(description.ne, description.en)]
 
-                    <div className="relative z-10 flex-1">
-                      <div className={`text-xs font-black tracking-widest uppercase mb-1 opacity-50 ${isActive ? 'text-didi-red' : 'text-didi-black'}`}>
-                        {t(`बुँदा #${idx + 1}`, `POINT #${idx + 1}`)}
-                      </div>
-                      <div className={`text-lg font-black leading-tight ${language === 'ne' ? 'font-nepali' : ''} ${isActive ? 'text-white' : 'text-didi-black'}`}>
-                        {t(pillar.ne, pillar.en)}
-                      </div>
-                    </div>
-
-                    <ChevronRight
-                      size={20}
-                      className={`relative z-10 transition-transform duration-300 ${isActive ? 'translate-x-0 opacity-100 text-didi-red' : '-translate-x-4 opacity-0 text-didi-black'}`}
-                    />
-                  </button>
+                              return points.map((point: string, pIdx: number) => (
+                                <div key={pIdx} className="flex items-start gap-4">
+                                  <div className="w-2 h-2 rounded-full bg-didi-red mt-2.5 shrink-0" />
+                                  <p className={`text-base text-didi-black/80 font-medium ${language === 'ne' ? 'font-nepali' : ''}`}>
+                                    {point}
+                                  </p>
+                                </div>
+                              ))
+                            })()}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 )
               })}
             </div>
 
-            {/* Right Side: Detailed View */}
-            <div className="w-full lg:w-3/5 bg-didi-gray rounded-[40px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-start min-h-[500px]">
+            {/* Right Side: Detailed View (Desktop Only) */}
+            <div className="hidden lg:flex w-full lg:w-3/5 bg-didi-gray rounded-[40px] p-8 md:p-12 relative overflow-hidden flex-col justify-start min-h-[500px]">
               {/* Decorative Elements */}
               <div className="absolute -top-12 -right-12 w-48 h-48 bg-didi-red/5 rounded-full blur-3xl" />
               <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-didi-black/5 rounded-full blur-3xl" />
