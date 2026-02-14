@@ -7,7 +7,7 @@ type Language = 'ne' | 'en'
 interface LanguageContextType {
     language: Language
     setLanguage: (lang: Language) => void
-    t: (neText: string, enText: string) => string
+    t: (neText: any, enText: any) => any
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -34,7 +34,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
 
     // Helper function to get text based on current language
-    const t = (neText: string, enText: string) => {
+    const t = (neText: any, enText: any) => {
         return language === 'ne' ? neText : enText
     }
 

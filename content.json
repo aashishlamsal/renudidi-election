@@ -421,34 +421,145 @@
       "en": "Vision for the Next 5 Years"
     },
     "teaser": {
-      "ne": "चाँडै आउँदैछ",
-      "en": "Coming Soon"
+      "ne": "२०८१-२०८६",
+      "en": "2081-2086"
     },
     "pillars": [
       {
-        "ne": "महिला सशक्तीकरण",
-        "en": "Women Empowerment",
-        "icon": "Users"
-      },
-      {
-        "ne": "युवा रोजगारी",
-        "en": "Youth Employment",
-        "icon": "Briefcase"
-      },
-      {
-        "ne": "स्थानीय विकास",
-        "en": "Local Development",
-        "icon": "Building2"
-      },
-      {
         "ne": "सुशासन र पारदर्शिता",
         "en": "Good Governance",
-        "icon": "Scale"
+        "icon": "Scale",
+        "description": {
+          "ne": [
+            "पारदर्शी, भ्रष्टाचारमुक्त र शून्य सहनशीलताको शासन प्रणाली स्थापना",
+            "नीति निर्माणमा नागरिक सहभागिता सुनिश्चित",
+            "नागरिक सम्पर्क केन्द्र स्थापना र संवैधानिक अधिकारको पूर्ण कार्यान्वयन"
+          ],
+          "en": [
+            "Establish a transparent, corruption‑free, zero‑tolerance governance system.",
+            "Ensure citizen participation in policymaking.",
+            "Set up citizen contact centers and fully enforce constitutional rights."
+          ]
+        }
       },
       {
-        "ne": "प्रगतिशील नेपाल",
-        "en": "Progressive Nepal",
-        "icon": "TrendingUp"
+        "ne": "पूर्वाधार र स्मार्ट सिटी",
+        "en": "Infrastructure & Smart City",
+        "icon": "Building2",
+        "description": {
+          "ne": [
+            "चितवनलाई 'स्मार्ट नेपाल' मोडेलमा केन्द्रीय शहर विकास",
+            "सडक, पुल, खानेपानी, र ढल व्यवस्थापनमा व्यापक सुधार",
+            "भरतपुर विमानस्थल स्तरोन्नति र ठोरी–केरुङ अन्तर्राष्ट्रिय सडक संजाल पुरा"
+          ],
+          "en": [
+            "Develop Chitwan as a Central City under the Smart Nepal model.",
+            "Improve roads, bridges, water supply, drainage, and waste management.",
+            "Upgrade Bharatpur Airport and complete the Thori–Kerung international road link."
+          ]
+        }
+      },
+      {
+        "ne": "आर्थिक वृद्धि र पर्यटन",
+        "en": "Economic Growth & Tourism",
+        "icon": "Palmtree",
+        "description": {
+          "ne": [
+            "चितवनलाई विशेष आर्थिक क्षेत्र (SEZ) घोषणा",
+            "भरतपुरमा आईटी पार्क स्थापना गरी युवा रोजगारी प्रवर्द्धन",
+            "धार्मिक, सांस्कृतिक र प्राकृतिक पर्यटकीय हब तथा सांस्कृतिक गाउँ विकास"
+          ],
+          "en": [
+            "Declare Chitwan a Special Economic Zone (SEZ).",
+            "Establish an IT Park in Bharatpur to boost youth employment.",
+            "Develop Chitwan as a religious, cultural, and natural tourism hub, including Cultural Villages."
+          ]
+        }
+      },
+      {
+        "ne": "शिक्षामा सुधार",
+        "en": "Education Reform",
+        "icon": "GraduationCap",
+        "description": {
+          "ne": [
+            "सबैका लागि निःशुल्क शिक्षाको कानुनी ग्यारेन्टी",
+            "वनविज्ञान, कृषि र इन्जिनियरिङ क्याम्पसहरूको सुदृढीकरण",
+            "सामुदायिक विद्यालयहरूलाई प्रविधियुक्त र आधुनिक पूर्वाधारयुक्त बनाउने"
+          ],
+          "en": [
+            "Guarantee free education for all through legal provisions.",
+            "Strengthen Forestry, Agriculture, Birendra Campus & Chitwan Engineering Campus.",
+            "Modernize community schools with technology and better infrastructure."
+          ]
+        }
+      },
+      {
+        "ne": "स्वास्थ्य सेवा विस्तार",
+        "en": "Health Services",
+        "icon": "Stethoscope",
+        "description": {
+          "ne": [
+            "चितवनलाई 'मेडिकल सिटी' को रूपमा विकास",
+            "भरतपुर र क्यान्सर अस्पताललाई अनुसन्धान र उत्कृष्टता केन्द्र बनाउने",
+            "माडी र मेघौलीमा सुविधायुक्त अस्पताल र शिक्षक अस्पताल निर्माण"
+          ],
+          "en": [
+            "Develop Chitwan into a Medical City.",
+            "Upgrade Bharatpur Central Hospital & BPKIHS Cancer Hospital into Research & Excellence Centers.",
+            "Build fully equipped hospitals in Madi and Meghauli + establish a Teachers’ Hospital."
+          ]
+        }
+      },
+      {
+        "ne": "कृषि र सिँचाई",
+        "en": "Agriculture & Irrigation",
+        "icon": "Sprout",
+        "description": {
+          "ne": [
+            "ब्रान्डिङ र न्यूनतम समर्थन मूल्य मार्फत उत्पादन प्रवर्द्धन",
+            "'मेड इन चितवन' अभियान र निर्यातमा जोड",
+            "नारायणी लिफ्ट, खगेरी र राप्ती–रेउ सिँचाई प्रणाली विस्तार"
+          ],
+          "en": [
+            "Promote local products through branding & minimum support price.",
+            "Launch “Made in Chitwan” campaign for production and export.",
+            "Expand irrigation systems (Narayani Lift, Khageri, Rapti‑Reu & groundwater irrigation)."
+          ]
+        }
+      },
+      {
+        "ne": "सशक्तीकरण र समावेशीकरण",
+        "en": "Empowerment & Inclusion",
+        "icon": "Users",
+        "description": {
+          "ne": [
+            "एक वडा – एक महिला उद्यमी कार्यक्रम लागू",
+            "दलित र सीमान्तकृत समुदायका लागि सीप विकास र बिउ पूँजी",
+            "सामाजिक सुरक्षा सुधार र ज्येष्ठ नागरिकको मर्यादित जीवन"
+          ],
+          "en": [
+            "Implement One Ward – One Women Entrepreneur program.",
+            "Provide skill development, technical training & seed capital.",
+            "Improve social security and ensure dignified living for senior citizens."
+          ]
+        }
+      },
+      {
+        "ne": "युवा र खेलकुद",
+        "en": "Youth & Sports",
+        "icon": "Trophy",
+        "description": {
+          "ne": [
+            "गौतम बुद्ध अन्तर्राष्ट्रिय क्रिकेट रंगशाला पुरा गर्ने",
+            "राष्ट्रिय खेलकुद प्रशिक्षण केन्द्र र एकेडेमी स्थापना",
+            "खेलकुदलाई युवाको दिगो पेशाको रूपमा प्रवर्द्धन"
+          ],
+          "en": [
+            "Complete Gautam Buddha International Cricket Stadium.",
+            "Establish a National Sports Training Center and Sports Academy.",
+            "Promote sports as a sustainable profession for youth."
+          ]
+        }
       }
     ]
   },
