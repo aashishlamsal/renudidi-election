@@ -65,7 +65,7 @@ export default function Hero() {
         </motion.div>
       ))}
 
-      <div className="container-custom relative z-10 pt-20 md:pt-24 lg:pt-28 pb-20 min-h-screen flex items-start lg:items-center">
+      <div className="container-custom relative z-10 pt-20 md:pt-28 pb-0 min-h-[85vh] md:min-h-[80vh] flex items-start lg:items-center">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start w-full">
 
           {/* Left Column: Text Content */}
@@ -80,7 +80,7 @@ export default function Hero() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: 'spring' }}
-              className="inline-block mb-8 px-5 py-1.5 bg-didi-red/10 border border-didi-red/30 rounded-full backdrop-blur-sm"
+              className="inline-block mb-4 md:mb-6 px-4 py-1.5 md:px-5 bg-didi-red/10 border border-didi-red/30 rounded-full backdrop-blur-sm"
             >
               <span className="text-didi-red font-bold text-sm tracking-widest uppercase flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-didi-red animate-pulse" />
@@ -89,8 +89,8 @@ export default function Hero() {
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="mb-6 md:mb-8 leading-[1.1] md:leading-tight">
-              <div className={`text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 text-glow-red ${language === 'ne' ? 'font-nepali' : ''}`}>
+            <h1 className="mb-4 md:mb-5 leading-[1.1] md:leading-tight">
+              <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-2 text-glow-red ${language === 'ne' ? 'font-nepali' : ''}`}>
                 {t(hero.headline.ne, hero.headline.en)}
               </div>
             </h1>
@@ -100,7 +100,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="mb-8 md:mb-12 max-w-xl"
+              className="mb-6 md:mb-8 max-w-xl"
             >
               <div className={`text-lg md:text-2xl text-didi-red font-medium leading-relaxed ${language === 'ne' ? 'font-nepali' : ''}`}>
                 {t(hero.subheadline.ne, hero.subheadline.en)}
@@ -128,27 +128,45 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-            className="relative w-full max-w-[280px] md:max-w-sm lg:max-w-[420px] mx-auto lg:ml-auto aspect-[4/5]"
+            className="relative w-full max-w-[280px] md:max-w-sm lg:max-w-[420px] max-h-[50vh] md:max-h-[60vh] lg:max-h-[65vh] mx-auto lg:ml-auto aspect-[4/5]"
           >
-            {/* Image Decorative Background */}
-            <div className="absolute inset-0 bg-didi-red/10 md:bg-didi-red/20 blur-[60px] md:blur-[100px] rounded-full animate-pulse" />
+            {/* Animated Blob Background */}
+            <div className="absolute inset-0 -z-10 flex items-center justify-center transform scale-110 md:scale-125">
+              <motion.div
+                animate={{
+                  borderRadius: [
+                    "60% 40% 30% 70% / 60% 30% 70% 40%",
+                    "30% 60% 70% 40% / 50% 60% 30% 60%",
+                    "60% 40% 30% 70% / 60% 30% 70% 40%"
+                  ],
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="w-full h-full bg-gradient-to-tr from-didi-red/20 via-didi-red/10 to-transparent blur-xl"
+              />
+            </div>
 
-            <div className="relative z-10 w-full h-full rounded-3xl md:rounded-[40px] overflow-hidden border border-white/10 shadow-2xl group bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm">
-              {/* Premium Placeholder Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-didi-red/40 via-didi-black to-black flex items-center justify-center">
-                <div className="text-center p-6 md:p-8">
-                  <div className="w-16 h-16 md:w-24 md:h-24 bg-didi-red/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 border border-didi-red/30 group-hover:scale-110 transition-transform duration-500">
-                    <span className="text-3xl md:text-5xl text-didi-red">★</span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-white mb-1 md:mb-2 tracking-tighter uppercase">Renu Dahal</h3>
-                  <p className="text-didi-red font-bold text-xs md:text-sm tracking-widest opacity-60">LEADERSHIP IN ACTION</p>
+            <div className="relative z-10 w-full h-full rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl">
+              <div className="relative w-full h-full">
+                <img
+                  src="/images/renu-dahal-hero.png"
+                  alt="Renu Dahal"
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                />
+
+                {/* Gradient Overlay for text readability at bottom */}
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
+
+                {/* Floating Name Label */}
+                <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-20">
+                  <div className="h-1 w-10 md:w-12 bg-didi-red mb-2" />
+                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tighter uppercase mb-1">Renu Dahal</h3>
+                  <p className="text-didi-red font-bold text-[10px] md:text-xs tracking-widest opacity-90">LEADERSHIP IN ACTION</p>
                 </div>
-              </div>
-
-              {/* Glass Overlay for future image */}
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 bg-gradient-to-t from-didi-black to-transparent">
-                <div className="h-1 w-10 md:w-12 bg-didi-red mb-3 md:mb-4" />
-                <p className="text-white/60 text-[10px] md:text-xs italic font-light uppercase tracking-[0.2em]">Ready for campaign photo</p>
               </div>
             </div>
 
@@ -188,7 +206,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0B0B0F] to-transparent pointer-events-none" />
     </section>
   )
 }
