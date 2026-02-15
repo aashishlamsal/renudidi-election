@@ -156,63 +156,63 @@
           "en": "Infrastructure Revolution"
         },
         "description": {
-          "ne": "६४२ किलोमिटरभन्दा बढी कालोपत्रे सडक निर्माण, ६ वटा आधुनिक पुल र चौबीसकोठी–मेगौली सडकको स्तरोन्नति।",
-          "en": "Construction of over 642km of paved roads, 6 modern bridges, and upgrading of the Chaubiskothi-Meghauli highway."
+          "ne": "१०७२ किलोमिटरभन्दा बढी सडक कालोपत्रे, ८८ कि.मि. चक्रपथ तथा रिङरोड निर्माण, नारायणी नदीमा ३५ कि.मि. तटबन्धन, सिग्नेचर ब्रिज र विमानस्थल विस्तार प्रक्रिया।",
+          "en": "Over 1072 km of roads blacktopped, 88 km of ring roads, 35 km of Narayani river embankment, Signature Bridge, and airport expansion."
         }
       },
       {
         "icon": "Stethoscope",
         "title": {
-          "ne": "गुणस्तरीय स्वास्थ्य सेवा",
-          "en": "Quality Healthcare"
+          "ne": "स्वास्थ्य तथा सामाजिक सुरक्षामा समावेशी पहुँच",
+          "en": "Inclusive Access to Health & Social Security"
         },
         "description": {
-          "ne": "भरतपुर अस्पतालको स्तरोन्नति, ७,००० लिटरसम्म निःशुल्क खानेपानी, र १६,००० बासिन्दालाई प्रत्यक्ष स्वास्थ्य लाभ।",
-          "en": "Bharatpur Hospital upgrade, free water up to 7,000L, and direct health services to 16,000+ residents."
+          "ne": "एक वडा एक स्वास्थ्य केन्द्र, जेष्ठ नागरिक तथा महिलाका लागि निःशुल्क सेवा, छोरी बीमा कार्यक्रम (१ लाख रुपैयाँ), विद्यालय स्वास्थ्य कार्यक्रम, मेयर स्वास्थ्य कार्यक्रम।",
+          "en": "One health center per ward, free services for seniors and women, daughter insurance program (1 lakh NPR), school health program, and Mayor's Health Program."
         }
       },
       {
         "icon": "GraduationCap",
         "title": {
-          "ne": "शिक्षामा आमूल सुधार",
-          "en": "Educational Reform"
+          "ne": "शिक्षा तथा युवा विकासमा आमूल परिवर्तन",
+          "en": "Transformative Change in Education & Youth Development"
         },
         "description": {
-          "ne": "१०० नयाँ विद्यालय भवन निर्माण, प्राविधिक शिक्षाको विस्तार र सामुदायिक विद्यालयको शैक्षिक गुणस्तरमा व्यापक बृद्धि।",
-          "en": "100 new school buildings constructed, expansion of technical education, and massive boost in community school quality."
+          "ne": "चितवन इन्जिनियरिङ क्याम्पस तथा CTEVT आङ्गिक कलेज स्थापना, १००+ सामुदायिक विद्यालय भवन निर्माण, १०% छात्रवृत्ति कार्यक्रम, छात्राहरूलाई साइकल वितरण, प्रत्येक वडामा खेलकुद मैदान।",
+          "en": "Established Chitwan Engineering College & CTEVT institute, constructed 100+ school buildings, provided 10% scholarships, distributed bicycles to girls, and built sports grounds in every ward."
         }
       },
       {
         "icon": "TrendingUp",
         "title": {
-          "ne": "राजस्वमा १० गुणा बृद्धि",
-          "en": "10x Revenue Growth"
+          "ne": "कृषि, सिँचाइ तथा आत्मनिर्भरतामा जोड",
+          "en": "Focus on Agriculture, Irrigation & Self-Reliance"
         },
         "description": {
-          "ne": "भरतपुरको आन्तरिक राजस्व रु. १४ करोडबाट बढाएर रु. १४० करोड पुर्याई आर्थिक रूपमा सबल महानगर स्थापना।",
-          "en": "Elevated Bharatpur's internal revenue from Rs 140M to Rs 1.4B, establishing a financially robust city."
+          "ne": "१२० डिप बोरिङ तथा ८०० ट्युबवेल, ८ हजार बिगाहा जमिनमा सिँचाइ सुविधा, किसानलाई ५०% अनुदान कृषि औजार, दूधमा प्रतिलिटर ४ रुपैयाँ अनुदान, ९८% शुद्ध खानेपानी पहुँच।",
+          "en": "120 deep boring and 800 tubewells, irrigation for 8,000 bighas, 50% subsidy on farm equipment, Rs 4/liter milk subsidy, and 98% access to clean drinking water."
         }
       },
       {
         "icon": "Scale",
         "title": {
-          "ne": "सुशासन र पारदर्शिता",
-          "en": "Governance & Transparency"
+          "ne": "सुशासन र पारदर्शितामा उत्कृष्टता",
+          "en": "Excellence in Governance & Transparency"
         },
         "description": {
-          "ne": "बेरुजु शून्य प्रशासनको अभ्यास र राष्ट्रिय तथा अन्तर्राष्ट्रिय स्तरबाट उत्कृष्ट कार्यसम्पादनको पहिचान।",
-          "en": "Zero arrears administration practices and recognition for outstanding performance at national and international levels."
+          "ne": "संविधान सभा सदस्यबाट संविधान निर्माणमा योगदान, १८५ कानुन निर्माण तथा ३५ संशोधन, शून्य बेरुजु प्रशासन, LISA तथा वित्तीय सुशासनमा उत्कृष्ट पालिका घोषणा।",
+          "en": "Contributed to constitution making as a Constituent Assembly member, enacted 185 laws and amended 35, maintained zero-arrears administration, and recognized for excellence in fiscal governance."
         }
       },
       {
         "icon": "Users",
         "title": {
-          "ne": "सामाजिक न्याय र सशक्तीकरण",
-          "en": "Social Justice & Empowerment"
+          "ne": "पर्यटन, वातावरण तथा अन्तर्राष्ट्रिय पहिचान",
+          "en": "Tourism, Environment & International Identity"
         },
         "description": {
-          "ne": "८९१ नवजात छोरीहरूलाई जीवन बीमा, महिला उद्यमी कार्यक्रम र सीमान्तकृत समुदायको उत्थानका लागि विशेष प्याकेज।",
-          "en": "Life insurance for 891 newborn girls, women entrepreneurship programs, and special upliftment packages for marginalized communities."
+          "ne": "भरतपुर भ्रमण वर्ष २०२४, अम्ब्रेला स्ट्रीट, स्टोन पार्क, राइनो पार्क तथा कल्चरल भिलेज विकास, हरियाली अभियान र नदी संरक्षण, अन्तर्राष्ट्रिय मेयर अवार्ड प्राप्त, अन्तरपालिका भगिनी सम्बन्ध विस्तार।",
+          "en": "Bharatpur Visit Year 2024, development of Umbrella Street, Stone Park, Rhino Park, and Cultural Village, green initiatives and river conservation, received International Mayor Award, expanded inter-municipality sister relations."
         }
       }
     ]
