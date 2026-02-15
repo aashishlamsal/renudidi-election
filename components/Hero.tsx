@@ -59,8 +59,8 @@ export default function Hero() {
             ease: 'easeInOut',
           }}
         >
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-didi-red opacity-50">
-            <path d="M20 0C20 11.0457 11.0457 20 0 20C11.0457 20 20 28.9543 20 40C20 28.9543 28.9543 20 40 20C28.9543 20 20 11.0457 20 0Z" fill="currentColor" />
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="text-didi-red opacity-50">
+            <path d="M12 2L14.4 8.6L21.5 9.3L16.2 14.1L17.8 21L12 17.6L6.2 21L7.8 14.1L2.5 9.3L9.6 8.6L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" />
           </svg>
         </motion.div>
       ))}
