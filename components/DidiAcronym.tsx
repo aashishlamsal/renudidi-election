@@ -119,17 +119,6 @@ export default function DidiAcronym() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom Note */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.8 }}
-          className="text-center mt-12 text-didi-black/60"
-        >
-          <p className="font-nepali">प्रत्येक कार्ड विस्तृत जानकारीको लागि क्लिक गर्नुहोस्</p>
-          <p className="text-sm">Click each card for detailed information</p>
-        </motion.div>
       </div>
     </section>
   )

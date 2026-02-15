@@ -37,12 +37,12 @@
   },
   "whyDidi": {
     "title": {
-      "ne": "किन DIDI?",
-      "en": "Why DIDI?"
+      "ne": "किन रेनु दिदी?",
+      "en": "Why Renu Didi?"
     },
     "description": {
-      "ne": "DIDI भन्नाले विश्वास, साथ, र नेतृत्व हो। यो सम्बन्ध हो, आन्दोलन हो, र परिवर्तनको प्रतिबद्धता हो।",
-      "en": "DIDI means trust, companionship, and leadership. It's a relationship, a movement, and a commitment to change."
+      "ne": "दिदी भन्नाले विश्वास, साथ, र नेतृत्व हो। यो सम्बन्ध हो, आन्दोलन हो, र परिवर्तनको प्रतिबद्धता हो।",
+      "en": "Didi means trust, companionship, and leadership. It's a relationship, a movement, and a commitment to change."
     },
     "points": [
       {
@@ -110,17 +110,17 @@
       {
         "letter": "D",
         "title": {
-          "ne": "निर्णायक",
-          "en": "Decisive"
+          "ne": "विकास-प्रधान",
+          "en": "Development-Driven"
         },
         "points": [
           {
-            "ne": "साहसी निर्णय",
-            "en": "Courageous decisions"
+            "ne": "दिगो र समावेशी प्रगति",
+            "en": "Sustainable and inclusive progress"
           },
           {
-            "ne": "तत्काल कार्यान्वयन",
-            "en": "Swift implementation"
+            "ne": "जनताको जीवनमा ठोस परिवर्तन",
+            "en": "Tangible change in people's lives"
           }
         ]
       },

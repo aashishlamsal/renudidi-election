@@ -22,7 +22,7 @@ export default function Header() {
 
   const navLinks = [
     { ne: 'गृहपृष्ठ', en: 'Home', href: '/' },
-    { ne: 'DIDI', en: 'DIDI', href: isHome ? '#why-didi' : '/#why-didi' },
+    { ne: 'किन दिदी', en: 'Why Didi', href: isHome ? '#why-didi' : '/#why-didi' },
     { ne: 'दृष्टिकोण', en: 'Vision', href: isHome ? '#didi-acronym' : '/#didi-acronym' },
     { ne: 'प्रभाव', en: 'Impact', href: isHome ? '#impact' : '/#impact' },
     { ne: 'तथ्य', en: 'Facts', href: isHome ? '#facts' : '/#facts' },
