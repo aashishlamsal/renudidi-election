@@ -65,7 +65,7 @@ renudidi-campaign/
 
 ### Colors
 
-- **Primary Red**: `#FF0000` (didi-red)
+- **Primary Red**: `#FF0101` (didi-red)
 - **Accent Gold**: `#FFC700` (didi-gold)
 - **Ink Black**: `#0B0B0F` (didi-black)
 - **Soft Gray**: `#F4F4F6` (didi-gray)
@@ -183,7 +183,7 @@ npm run build
 Edit `tailwind.config.js`:
 ```javascript
 colors: {
-  'didi-red': '#FF0000',     // Change to your red
+  'didi-red': '#FF0101',     // Change to your red
   'didi-gold': '#FFC700',    // Change to your gold
   'didi-black': '#0B0B0F',   // Change to your black
 }

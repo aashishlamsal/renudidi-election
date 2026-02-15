@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'didi-red': '#FF0000',
+        'didi-red': '#FF0101',
         'didi-gold': '#FFC700',
         'didi-black': '#0B0B0F',
         'didi-gray': '#F4F4F6',

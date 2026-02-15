@@ -100,7 +100,7 @@ export default function SupportPage() {
             <main className="pt-24 pb-20">
                 <section className="relative py-12 md:py-20 overflow-hidden">
                     <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
-                        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_2px_2px,#FF0000_1px,transparent_0)] bg-[size:40px_40px]" />
+                        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_2px_2px,#FF0101_1px,transparent_0)] bg-[size:40px_40px]" />
                     </div>
 
                     <div className="container-custom relative z-10">

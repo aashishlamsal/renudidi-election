@@ -36,7 +36,7 @@ export default function JoinMovement() {
       ref={ref}
       className="py-20 md:py-32 relative overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #FF0000 0%, #0B0B0F 100%)',
+        background: 'linear-gradient(135deg, #FF0101 0%, #0B0B0F 100%)',
       }}
     >
       {/* Large Star Watermark */}

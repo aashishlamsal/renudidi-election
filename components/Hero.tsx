@@ -34,7 +34,7 @@ export default function Hero() {
       {/* Background overlay pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, #FF0000 1px, transparent 0)',
+          backgroundImage: 'radial-gradient(circle at 2px 2px, #FF0101 1px, transparent 0)',
           backgroundSize: '40px 40px',
         }} />
       </div>

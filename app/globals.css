@@ -139,7 +139,7 @@ a:focus-visible {
 /* Star particles */
 .star-particle {
   position: absolute;
-  color: #FF0000;
+  color: #FF0101;
   opacity: 0.2;
   font-size: 24px;
   pointer-events: none;
