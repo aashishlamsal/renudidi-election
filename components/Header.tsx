@@ -39,17 +39,7 @@ export default function Header() {
         : 'bg-transparent py-5'
         }`}
     >
-      <nav className="container-custom flex items-center justify-between">
-        {/* Logo / Brand */}
-        <a href="/" className="relative z-50 flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-full bg-didi-red flex items-center justify-center text-white font-black text-xl shadow-glow-red group-hover:scale-110 transition-transform duration-300">
-            D
-          </div>
-          <div className="flex flex-col">
-            <span className="text-white font-bold leading-none tracking-wide text-lg">DIDI</span>
-            <span className="text-white/60 text-[10px] tracking-widest uppercase">Campaign</span>
-          </div>
-        </a>
+      <nav className="container-custom flex items-center justify-center gap-8">
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1 bg-white/5 backdrop-blur-sm rounded-full px-2 py-1 border border-white/5">
