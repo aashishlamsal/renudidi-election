@@ -5,7 +5,6 @@ import Hero from '@/components/Hero'
 import WhyDidi from '@/components/WhyDidi'
 import DidiAcronym from '@/components/DidiAcronym'
 import ImpactGallery from '@/components/ImpactGallery'
-import DebunkAllegations from '@/components/DebunkAllegations'
 import Manifesto from '@/components/Manifesto'
 import JoinMovement from '@/components/JoinMovement'
 import Footer from '@/components/Footer'
@@ -29,7 +28,6 @@ export default function Home() {
       <WhyDidi />
       <DidiAcronym />
       <ImpactGallery />
-      <DebunkAllegations />
       <Manifesto />
       <JoinMovement />
 

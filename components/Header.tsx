@@ -26,7 +26,6 @@ export default function Header() {
     { ne: 'किन दिदी', en: 'Why Didi', href: isHome ? '#why-didi' : '/#why-didi' },
     { ne: 'दृष्टिकोण', en: 'Vision', href: isHome ? '#didi-acronym' : '/#didi-acronym' },
     { ne: 'प्रभाव', en: 'Impact', href: isHome ? '#impact' : '/#impact' },
-    { ne: 'तथ्य', en: 'Facts', href: isHome ? '#facts' : '/#facts' },
     { ne: 'घोषणापत्र', en: 'Manifesto', href: isHome ? '#manifesto' : '/#manifesto' },
   ]
 
