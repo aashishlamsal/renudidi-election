@@ -9,7 +9,7 @@ export default function FloatingBadge() {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1 }}
-      className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-40 pointer-events-none"
+      className="hidden lg:block fixed right-8 bottom-8 z-[100] pointer-events-none"
     >
       <a href="/support" className="block cursor-pointer">
         <motion.div
