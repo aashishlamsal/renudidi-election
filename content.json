@@ -41,8 +41,8 @@
       "en": "Why Renu Didi?"
     },
     "description": {
-      "ne": "दिदी भन्नाले विश्वास, साथ, र नेतृत्व हो। यो सम्बन्ध हो, आन्दोलन हो, र परिवर्तनको प्रतिबद्धता हो।",
-      "en": "Didi means trust, companionship, and leadership. It's a relationship, a movement, and a commitment to change."
+      "ne": "रेनु दिदी केवल उम्मेदवार होइनन् - प्रमाणित नेतृत्व हुन्। संविधान निर्माण प्रक्रियामा प्रत्यक्ष सहभागिता, नौ वर्षको सफल महानगर नेतृत्व, शून्य बेरुजु प्रशासन, र भरतपुरलाई राष्ट्रिय तथा अन्तर्राष्ट्रिय पहिचान दिलाएको कार्यसम्पादन - यी सबैले उहाँलाई परिणाममुखी राजनीतिज्ञको रूपमा स्थापित गरेको छ। अब यही अनुभव र दृष्टि राष्ट्रिय तहमा विस्तार गर्ने समय आएको छ।",
+      "en": "Renu Didi is not just a candidate - she is a proven leader. Her direct involvement in Nepal’s constitution‑making process, nine years of successful metropolitan leadership, zero arrears administration, and achievements that earned national and international recognition for Bharatpur have established her as a results‑oriented politician. Now, the time has come to expand her experience and vision to the national level."
     },
     "points": [
       {
@@ -145,44 +145,74 @@
   },
   "impact": {
     "title": {
-      "ne": "हाम्रो काम, हाम्रो प्रभाव",
-      "en": "Our Work, Our Impact"
+      "ne": "प्रमाणित कार्य, ठोस प्रभाव",
+      "en": "Proven Work, Tangible Impact"
     },
     "gallery": [
       {
-        "caption": {
-          "ne": "सामुदायिक सभा",
-          "en": "Community Assembly"
+        "icon": "Building2",
+        "title": {
+          "ne": "भौतिक पूर्वाधारमा क्रान्ति",
+          "en": "Infrastructure Revolution"
+        },
+        "description": {
+          "ne": "६४२ किलोमिटरभन्दा बढी कालोपत्रे सडक निर्माण, ६ वटा आधुनिक पुल र चौबीसकोठी–मेगौली सडकको स्तरोन्नति।",
+          "en": "Construction of over 642km of paved roads, 6 modern bridges, and upgrading of the Chaubiskothi-Meghauli highway."
         }
       },
       {
-        "caption": {
-          "ne": "युवा सशक्तीकरण",
-          "en": "Youth Empowerment"
+        "icon": "Stethoscope",
+        "title": {
+          "ne": "गुणस्तरीय स्वास्थ्य सेवा",
+          "en": "Quality Healthcare"
+        },
+        "description": {
+          "ne": "भरतपुर अस्पतालको स्तरोन्नति, ७,००० लिटरसम्म निःशुल्क खानेपानी, र १६,००० बासिन्दालाई प्रत्यक्ष स्वास्थ्य लाभ।",
+          "en": "Bharatpur Hospital upgrade, free water up to 7,000L, and direct health services to 16,000+ residents."
         }
       },
       {
-        "caption": {
-          "ne": "महिला नेतृत्व",
-          "en": "Women Leadership"
+        "icon": "GraduationCap",
+        "title": {
+          "ne": "शिक्षामा आमूल सुधार",
+          "en": "Educational Reform"
+        },
+        "description": {
+          "ne": "१०० नयाँ विद्यालय भवन निर्माण, प्राविधिक शिक्षाको विस्तार र सामुदायिक विद्यालयको शैक्षिक गुणस्तरमा व्यापक बृद्धि।",
+          "en": "100 new school buildings constructed, expansion of technical education, and massive boost in community school quality."
         }
       },
       {
-        "caption": {
-          "ne": "स्थानीय विकास",
-          "en": "Local Development"
+        "icon": "TrendingUp",
+        "title": {
+          "ne": "राजस्वमा १० गुणा बृद्धि",
+          "en": "10x Revenue Growth"
+        },
+        "description": {
+          "ne": "भरतपुरको आन्तरिक राजस्व रु. १४ करोडबाट बढाएर रु. १४० करोड पुर्याई आर्थिक रूपमा सबल महानगर स्थापना।",
+          "en": "Elevated Bharatpur's internal revenue from Rs 140M to Rs 1.4B, establishing a financially robust city."
         }
       },
       {
-        "caption": {
-          "ne": "शिक्षा अभियान",
-          "en": "Education Campaign"
+        "icon": "Scale",
+        "title": {
+          "ne": "सुशासन र पारदर्शिता",
+          "en": "Governance & Transparency"
+        },
+        "description": {
+          "ne": "बेरुजु शून्य प्रशासनको अभ्यास र राष्ट्रिय तथा अन्तर्राष्ट्रिय स्तरबाट उत्कृष्ट कार्यसम्पादनको पहिचान।",
+          "en": "Zero arrears administration practices and recognition for outstanding performance at national and international levels."
         }
       },
       {
-        "caption": {
-          "ne": "स्वास्थ्य सेवा",
-          "en": "Healthcare Services"
+        "icon": "Users",
+        "title": {
+          "ne": "सामाजिक न्याय र सशक्तीकरण",
+          "en": "Social Justice & Empowerment"
+        },
+        "description": {
+          "ne": "८९१ नवजात छोरीहरूलाई जीवन बीमा, महिला उद्यमी कार्यक्रम र सीमान्तकृत समुदायको उत्थानका लागि विशेष प्याकेज।",
+          "en": "Life insurance for 891 newborn girls, women entrepreneurship programs, and special upliftment packages for marginalized communities."
         }
       }
     ]
