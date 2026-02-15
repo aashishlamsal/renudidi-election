@@ -34,7 +34,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || !isHome || mobileMenuOpen
-        ? 'bg-didi-black/80 backdrop-blur-lg shadow-lg border-b border-white/5 py-3'
+        ? 'bg-didi-black shadow-lg border-b border-white/5 py-3'
         : 'bg-transparent py-5'
         }`}
     >
@@ -108,7 +108,7 @@ export default function Header() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="fixed inset-0 z-40 bg-didi-black/95 backdrop-blur-xl lg:hidden flex flex-col pt-24 px-6"
+              className="fixed inset-0 z-40 bg-didi-black lg:hidden flex flex-col pt-24 px-6"
             >
               {/* Mobile Nav Links */}
               <div className="flex flex-col gap-2">
