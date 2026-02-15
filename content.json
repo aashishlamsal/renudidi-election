@@ -403,43 +403,6 @@
   },
   "footer": {
     "copyright": "© 2026 renudidi.com - All Rights Reserved",
-    "links": [
-      {
-        "text": {
-          "ne": "गृहपृष्ठ",
-          "en": "Home"
-        },
-        "href": "/"
-      },
-      {
-        "text": {
-          "ne": "DIDI",
-          "en": "DIDI"
-        },
-        "href": "#why-didi"
-      },
-      {
-        "text": {
-          "ne": "दृष्टिकोण",
-          "en": "Vision"
-        },
-        "href": "#manifesto"
-      },
-      {
-        "text": {
-          "ne": "प्रभाव",
-          "en": "Impact"
-        },
-        "href": "#impact"
-      },
-      {
-        "text": {
-          "ne": "सम्पर्क",
-          "en": "Contact"
-        },
-        "href": "#join"
-      }
-    ],
     "contact": {
       "ne": "सम्पर्क: info@renudidi.com",
       "en": "Contact: info@renudidi.com"
