@@ -1,0 +1,134 @@
+{
+    "site": {
+        "url": "https://renudidi.com",
+        "name": "Renu Didi - रेनु दिदी",
+        "locale": "ne_NP",
+        "alternateLocale": "en_US",
+        "themeColor": "#FF0101"
+    },
+    "metadata": {
+        "title": {
+            "default": "रेनु दिदी | भरतपुरबाट संघसम्म - Renu Didi",
+            "template": "%s | रेनु दिदी - Renu Didi"
+        },
+        "description": {
+            "ne": "भरतपुरको नेतृत्वबाट संघीय नेतृत्वमा। तीन दशकभन्दा बढी राजनीतिक संघर्ष र सेवा यात्राबाट खारिएको नेतृत्व।",
+            "en": "From Bharatpur's leadership to the Federation. Leadership forged through more than three decades of political struggle and service."
+        },
+        "keywords": [
+            "Renu Dahal",
+            "रेनु दाहाल",
+            "रेनु दिदी",
+            "Renu Didi",
+            "भरतपुर",
+            "Bharatpur",
+            "Nepal",
+            "नेपाल",
+            "CPN",
+            "mayor",
+            "मेयर",
+            "election",
+            "निर्वाचन",
+            "संघीय",
+            "federation",
+            "leadership",
+            "नेतृत्व",
+            "सुशासन",
+            "good governance"
+        ],
+        "authors": [
+            {
+                "name": "Renu Didi Campaign",
+                "url": "https://renudidi.com"
+            }
+        ],
+        "creator": "Renu Didi Campaign Team",
+        "robots": {
+            "index": true,
+            "follow": true,
+            "googleBot": {
+                "index": true,
+                "follow": true,
+                "max-video-preview": -1,
+                "max-image-preview": "large",
+                "max-snippet": -1
+            }
+        }
+    },
+    "openGraph": {
+        "title": "रेनु दिदी | भरतपुरबाट संघसम्म",
+        "description": "From Bharatpur's leadership to the Federation. Three decades of political struggle, service and proven governance.",
+        "type": "website",
+        "url": "https://renudidi.com",
+        "siteName": "Renu Didi - रेनु दिदी",
+        "locale": "ne_NP",
+        "alternateLocale": [
+            "en_US"
+        ],
+        "images": [
+            {
+                "url": "/images/og-image.jpg",
+                "width": 1200,
+                "height": 630,
+                "alt": "Renu Didi - भरतपुरबाट संघसम्म | From Bharatpur to the Federation"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "रेनु दिदी | भरतपुरबाट संघसम्म",
+        "description": "From Bharatpur's leadership to the Federation. Leadership forged through more than three decades of service.",
+        "images": [
+            "/images/og-image.jpg"
+        ],
+        "creator": "@renudidi"
+    },
+    "structuredData": {
+        "organization": {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Renu Didi Campaign",
+            "alternateName": "रेनु दिदी अभियान",
+            "url": "https://renudidi.com",
+            "logo": "https://renudidi.com/images/footer-logo.png",
+            "description": "Official campaign website of Renu Dahal (Renu Didi) — from Bharatpur's proven leadership to the national stage.",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Campaign Office",
+                "email": "info@renudidi.com"
+            },
+            "sameAs": [
+                "https://facebook.com/renudidi",
+                "https://twitter.com/renudidi",
+                "https://instagram.com/renudidi"
+            ]
+        },
+        "person": {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Renu Dahal",
+            "alternateName": "रेनु दाहाल",
+            "jobTitle": "Mayor of Bharatpur Metropolitan City",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "CPN (Maoist Centre)"
+            },
+            "url": "https://renudidi.com",
+            "image": "https://renudidi.com/images/renu-dahal-hero.png",
+            "sameAs": [
+                "https://facebook.com/renudidi",
+                "https://twitter.com/renudidi"
+            ]
+        }
+    },
+    "pages": {
+        "home": {
+            "title": "रेनु दिदी | भरतपुरबाट संघसम्म - Renu Didi",
+            "description": "From Bharatpur's leadership to the Federation. Leadership forged through more than three decades of political struggle and service."
+        },
+        "support": {
+            "title": "Support Renu Didi | समर्थन जनाउनुहोस्",
+            "description": "Show your support for Renu Didi's campaign. Create your personalized support frame and join the movement for a prosperous Nepal."
+        }
+    }
+}

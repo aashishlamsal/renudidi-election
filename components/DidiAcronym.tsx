@@ -14,7 +14,7 @@ export default function DidiAcronym() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null)
 
   return (
-    <section id="didi-acronym" ref={ref} className="py-20 md:py-32 bg-white">
+    <section id="didi-acronym" ref={ref} className="py-16 md:py-24 bg-white">
       <div className="container-custom">
         {/* Section Title */}
         <motion.div
@@ -44,14 +44,14 @@ export default function DidiAcronym() {
               transition={{ duration: 0.5, delay: 0.1 * idx }}
               whileHover={{ y: -8, scale: 1.02 }}
               onClick={() => setExpandedCard(expandedCard === idx ? null : idx)}
-              className={`relative bg-gradient-to-br from-didi-gray to-white p-8 rounded-3xl border-2 transition-all duration-300 cursor-pointer overflow-hidden ${expandedCard === idx
+              className={`relative bg-gradient-to-br from-didi-gray to-white p-6 md:p-8 rounded-3xl border-2 transition-all duration-300 cursor-pointer overflow-hidden ${expandedCard === idx
                 ? 'border-didi-red shadow-2xl glow-red'
                 : 'border-didi-black/10 hover:border-didi-red shadow-lg'
                 }`}
             >
-              {/* Background Letter Watermark */}
+              {/* Background Letter Watermark — hidden on mobile to prevent overflow */}
               <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-black text-didi-red/5 pointer-events-none select-none"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-black text-didi-red/5 pointer-events-none select-none hidden md:block"
                 style={{ fontSize: '20rem', lineHeight: 1 }}
               >
                 {card.letter}

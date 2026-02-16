@@ -34,7 +34,7 @@ export default function JoinMovement() {
     <section
       id="join"
       ref={ref}
-      className="py-20 md:py-32 relative overflow-hidden"
+      className="py-16 md:py-24 relative overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #FF0101 0%, #0B0B0F 100%)',
       }}
@@ -69,7 +69,7 @@ export default function JoinMovement() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-2xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-2xl"
+          className="max-w-2xl mx-auto bg-white rounded-3xl p-6 md:p-12 shadow-2xl"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}

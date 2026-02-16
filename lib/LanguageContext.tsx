@@ -13,22 +13,26 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
+    // Initialize with a safe default that matches SSR
     const [language, setLanguageState] = useState<Language>('ne')
     const [mounted, setMounted] = useState(false)
 
-    // Load language from localStorage on mount
+    // Load language from localStorage on mount (client-side only)
     useEffect(() => {
         setMounted(true)
-        const savedLanguage = localStorage.getItem('language') as Language
-        if (savedLanguage && (savedLanguage === 'ne' || savedLanguage === 'en')) {
-            setLanguageState(savedLanguage)
+        // Only access localStorage in the browser
+        if (typeof window !== 'undefined') {
+            const savedLanguage = localStorage.getItem('language') as Language
+            if (savedLanguage && (savedLanguage === 'ne' || savedLanguage === 'en')) {
+                setLanguageState(savedLanguage)
+            }
         }
     }, [])
 
     // Save language to localStorage when it changes
     const setLanguage = (lang: Language) => {
         setLanguageState(lang)
-        if (mounted) {
+        if (typeof window !== 'undefined' && mounted) {
             localStorage.setItem('language', lang)
         }
     }

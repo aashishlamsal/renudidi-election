@@ -29,7 +29,7 @@ export default function Manifesto() {
   const { language, t } = useLanguage()
 
   return (
-    <section id="manifesto" ref={ref} className="py-20 md:py-32 bg-white overflow-hidden">
+    <section id="manifesto" ref={ref} className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="container-custom">
         {/* Section Title */}
         <motion.div

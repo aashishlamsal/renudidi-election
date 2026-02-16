@@ -27,7 +27,7 @@ export default function ImpactGallery() {
   }
 
   return (
-    <section id="impact" ref={ref} className="py-24 md:py-32 bg-didi-black relative overflow-hidden">
+    <section id="impact" ref={ref} className="py-16 md:py-24 bg-didi-black relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#FF0101_1px,transparent_0)] bg-[size:32px_32px]" />

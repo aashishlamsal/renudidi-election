@@ -13,7 +13,7 @@ export default function WhyDidi() {
   const { language, t } = useLanguage()
 
   return (
-    <section id="why-didi" ref={ref} className="py-20 md:py-32 bg-didi-gray">
+    <section id="why-didi" ref={ref} className="py-16 md:py-24 bg-didi-gray">
       <div className="container-custom">
         {/* Section Title */}
         <motion.div

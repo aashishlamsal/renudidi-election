@@ -1,25 +1,61 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/lib/LanguageContext'
+import seo from '@/seo.json'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: seo.site.themeColor,
+}
+
 export const metadata: Metadata = {
-  title: 'नेपालकी दिदी - DIDI of Nepal',
-  description: 'नयाँ पुस्ताको नेतृत्व। समावेशी, निर्णायक, र प्रेरणादायी। New generation leadership. Inclusive, decisive, and inspiring.',
-  keywords: 'DIDI, Nepal, नेपाल, leadership, नेतृत्व, political campaign',
+  metadataBase: new URL(seo.site.url),
+  title: {
+    default: seo.metadata.title.default,
+    template: seo.metadata.title.template,
+  },
+  description: seo.metadata.description.en,
+  keywords: seo.metadata.keywords,
+  authors: seo.metadata.authors as Metadata['authors'],
+  creator: seo.metadata.creator,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'नेपालकी दिदी - DIDI of Nepal',
-    description: 'New generation leadership. Inclusive, decisive, and inspiring.',
+    title: seo.openGraph.title,
+    description: seo.openGraph.description,
     type: 'website',
-    locale: 'ne_NP',
-    alternateLocale: 'en_US',
+    url: seo.openGraph.url,
+    siteName: seo.openGraph.siteName,
+    locale: seo.openGraph.locale,
+    images: seo.openGraph.images,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'नेपालकी दिदी - DIDI of Nepal',
-    description: 'New generation leadership for Nepal.',
+    title: seo.twitter.title,
+    description: seo.twitter.description,
+    images: seo.twitter.images,
+    creator: seo.twitter.creator,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  alternates: {
+    canonical: seo.site.url,
   },
 }
 
