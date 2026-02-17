@@ -67,7 +67,7 @@
         ],
         "images": [
             {
-                "url": "/images/og-image.jpg",
+                "url": "/images/og-image.jpeg",
                 "width": 1200,
                 "height": 630,
                 "alt": "Renu Didi - भरतपुरबाट संघसम्म | From Bharatpur to the Federation"
@@ -79,7 +79,7 @@
         "title": "रेनु दिदी | भरतपुरबाट संघसम्म",
         "description": "From Bharatpur's leadership to the Federation. Leadership forged through more than three decades of service.",
         "images": [
-            "/images/og-image.jpg"
+            "/images/og-image.jpeg"
         ],
         "creator": "@RenuDahal1"
     },
