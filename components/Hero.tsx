@@ -84,7 +84,7 @@ export default function Hero() {
             >
               <span className="text-didi-red font-bold text-sm tracking-widest uppercase flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-didi-red animate-pulse" />
-                DIDI MODE
+                MP MODE
               </span>
             </motion.div>
 

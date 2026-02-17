@@ -50,13 +50,15 @@ export default function Footer() {
 
               <div className="flex gap-3 justify-center md:justify-end">
                 {[
-                  { label: 'Facebook', icon: 'f' },
-                  { label: 'Twitter', icon: '𝕏' },
-                  { label: 'Instagram', icon: 'IG' }
+                  { label: 'Facebook', icon: 'f', href: 'https://www.facebook.com/renu.dahal.9' },
+                  { label: 'Twitter', icon: '𝕏', href: 'https://x.com/RenuDahal1' },
+                  { label: 'Instagram', icon: 'IG', href: 'https://www.instagram.com/renudaha33' }
                 ].map((social) => (
                   <a
                     key={social.label}
-                    href="#"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 bg-white/5 hover:bg-didi-red border border-white/10 hover:border-didi-red rounded-lg flex items-center justify-center transition-all duration-300 group"
                     aria-label={social.label}
                   >

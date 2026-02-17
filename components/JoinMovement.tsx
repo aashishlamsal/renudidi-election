@@ -70,7 +70,7 @@ export default function JoinMovement() {
   }
 
   const handleShare = () => {
-    navigator.clipboard.writeText('https://renudidi.com')
+    navigator.clipboard.writeText('https://renuformp.com')
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }

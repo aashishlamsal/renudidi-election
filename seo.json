@@ -1,6 +1,6 @@
 {
     "site": {
-        "url": "https://renudidi.com",
+        "url": "https://renuformp.com",
         "name": "Renu Didi - रेनु दिदी",
         "locale": "ne_NP",
         "alternateLocale": "en_US",
@@ -39,7 +39,7 @@
         "authors": [
             {
                 "name": "Renu Didi Campaign",
-                "url": "https://renudidi.com"
+                "url": "https://renuformp.com"
             }
         ],
         "creator": "Renu Didi Campaign Team",
@@ -59,7 +59,7 @@
         "title": "रेनु दिदी | भरतपुरबाट संघसम्म",
         "description": "From Bharatpur's leadership to the Federation. Three decades of political struggle, service and proven governance.",
         "type": "website",
-        "url": "https://renudidi.com",
+        "url": "https://renuformp.com",
         "siteName": "Renu Didi - रेनु दिदी",
         "locale": "ne_NP",
         "alternateLocale": [
@@ -81,7 +81,7 @@
         "images": [
             "/images/og-image.jpg"
         ],
-        "creator": "@renudidi"
+        "creator": "@RenuDahal1"
     },
     "structuredData": {
         "organization": {
@@ -89,18 +89,18 @@
             "@type": "Organization",
             "name": "Renu Didi Campaign",
             "alternateName": "रेनु दिदी अभियान",
-            "url": "https://renudidi.com",
-            "logo": "https://renudidi.com/images/footer-logo.png",
+            "url": "https://renuformp.com",
+            "logo": "https://renuformp.com/images/footer-logo.png",
             "description": "Official campaign website of Renu Dahal (Renu Didi) — from Bharatpur's proven leadership to the national stage.",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "Campaign Office",
-                "email": "info@renudidi.com"
+                "email": "renuformp@gmail.com"
             },
             "sameAs": [
-                "https://facebook.com/renudidi",
-                "https://twitter.com/renudidi",
-                "https://instagram.com/renudidi"
+                "https://www.facebook.com/renu.dahal.9",
+                "https://x.com/RenuDahal1",
+                "https://www.instagram.com/renudaha33"
             ]
         },
         "person": {
@@ -113,11 +113,11 @@
                 "@type": "Organization",
                 "name": "CPN (Maoist Centre)"
             },
-            "url": "https://renudidi.com",
-            "image": "https://renudidi.com/images/renu-dahal-hero.png",
+            "url": "https://renuformp.com",
+            "image": "https://renuformp.com/images/renu-dahal-hero.png",
             "sameAs": [
-                "https://facebook.com/renudidi",
-                "https://twitter.com/renudidi"
+                "https://www.facebook.com/renu.dahal.9",
+                "https://x.com/RenuDahal1"
             ]
         }
     },
