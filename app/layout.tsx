@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     creator: seo.twitter.creator,
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/icon.svg',
+    apple: '/icon.svg',
   },
   alternates: {
     canonical: seo.site.url,
