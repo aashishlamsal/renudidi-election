@@ -15,13 +15,58 @@ export default function JoinMovement() {
     contact: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const { language, t } = useLanguage()
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    alert('Thank you for your suggestion! रेनु दिदीको अभियानमा जोडिनुभएकोमा धन्यवाद। ★')
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()  // ← This stops any native form submission / redirect
+    e.stopPropagation() // Extra safeguard
+
+    setIsSubmitting(true)
+    setIsSubmitted(false)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        setFormData({
+          name: '',
+          contact: '',
+          message: '',
+        })
+        // Auto-hide success message after 6 seconds
+        setTimeout(() => setIsSubmitted(false), 6000)
+      } else {
+        setError(
+          t(
+            'केही समस्या भयो। कृपया फेरि प्रयास गर्नुहोस्।',
+            'Something went wrong. Please try again.'
+          )
+        )
+      }
+    } catch (err) {
+      setError(
+        t(
+          'इन्टरनेट जडान जाँच गर्नुहोस् वा पछि प्रयास गर्नुहोस्।',
+          'Check your internet connection or try again later.'
+        )
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleShare = () => {
@@ -71,7 +116,7 @@ export default function JoinMovement() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="max-w-2xl mx-auto bg-white rounded-3xl p-6 md:p-12 shadow-2xl"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-6" noValidate>
             {/* Name Field */}
             <div>
               <label className={`block mb-2 font-semibold text-didi-black ${language === 'ne' ? 'font-nepali' : ''}`}>
@@ -121,11 +166,38 @@ export default function JoinMovement() {
             <div className="pt-4">
               <button
                 type="submit"
-                className={`w-full py-4 rounded-xl font-black text-lg transition-all duration-300 border-2 border-didi-red bg-white text-didi-red hover:bg-didi-red hover:text-white shadow-xl hover:scale-[1.02] flex items-center justify-center gap-2 ${language === 'ne' ? 'font-nepali' : ''}`}
+                disabled={isSubmitting}
+                className={`w-full py-4 rounded-xl font-black text-lg transition-all duration-300 border-2 border-didi-red flex items-center justify-center gap-2
+                  ${isSubmitting
+                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                    : 'bg-white text-didi-red hover:bg-didi-red hover:text-white shadow-xl hover:scale-[1.02]'
+                  } ${language === 'ne' ? 'font-nepali' : ''}`}
               >
-                {t(join.form.submit.ne, join.form.submit.en)} ★
+                {isSubmitting
+                  ? t('पठाउँदै...', 'Submitting...')
+                  : `${t(join.form.submit.ne, join.form.submit.en)} ★`
+                }
               </button>
             </div>
+
+            {/* Success Message */}
+            {isSubmitted && (
+              <div className="mt-6 p-4 bg-green-50 border border-green-200 text-green-800 rounded-xl text-center">
+                <p className={`font-semibold ${language === 'ne' ? 'font-nepali' : ''}`}>
+                  {t(
+                    'धन्यवाद! तपाईंको सुझाव सफलतापूर्वक पठाइयो। ★',
+                    'Thank you! Your suggestion has been successfully sent. ★'
+                  )}
+                </p>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {error && (
+              <div className="mt-4 p-4 bg-red-50 border border-red-200 text-red-800 rounded-xl text-center">
+                {error}
+              </div>
+            )}
 
             {/* Privacy Notice */}
             <p className={`text-center text-sm text-didi-black/60 pt-4 ${language === 'ne' ? 'font-nepali' : ''}`}>
