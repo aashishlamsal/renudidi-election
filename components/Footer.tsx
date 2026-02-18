@@ -3,6 +3,7 @@
 import NextImage from 'next/image'
 import content from '@/content.json'
 import { useLanguage } from '@/lib/LanguageContext'
+import { Facebook, Instagram } from 'lucide-react'
 
 export default function Footer() {
   const { footer } = content
@@ -29,7 +30,7 @@ export default function Footer() {
                 भरतपुरबाट संघसम्म
               </p>
               <p className="text-didi-red font-medium tracking-wide text-xs uppercase">
-                From Bharatpur to the Federation
+                Bharatpur to Parliament
               </p>
             </div>
           </div>
@@ -50,9 +51,17 @@ export default function Footer() {
 
               <div className="flex gap-3 justify-center md:justify-end">
                 {[
-                  { label: 'Facebook', icon: 'f', href: 'https://www.facebook.com/renu.dahal.9' },
-                  { label: 'Twitter', icon: '𝕏', href: 'https://x.com/RenuDahal1' },
-                  { label: 'Instagram', icon: 'IG', href: 'https://www.instagram.com/renudaha33' }
+                  { label: 'Facebook', icon: <Facebook size={18} />, href: 'https://www.facebook.com/renu.dahal.9' },
+                  {
+                    label: 'Twitter',
+                    icon: (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298L17.61 20.644z" />
+                      </svg>
+                    ),
+                    href: 'https://x.com/RenuDahal1'
+                  },
+                  { label: 'Instagram', icon: <Instagram size={18} />, href: 'https://www.instagram.com/renudaha33' }
                 ].map((social) => (
                   <a
                     key={social.label}
@@ -62,7 +71,7 @@ export default function Footer() {
                     className="w-10 h-10 bg-white/5 hover:bg-didi-red border border-white/10 hover:border-didi-red rounded-lg flex items-center justify-center transition-all duration-300 group"
                     aria-label={social.label}
                   >
-                    <span className="text-white group-hover:scale-110 transition-transform font-bold text-sm">
+                    <span className="text-white group-hover:scale-110 transition-transform">
                       {social.icon}
                     </span>
                   </a>

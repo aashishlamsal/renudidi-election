@@ -225,12 +225,6 @@ export default function Manifesto() {
           >
             {t('पूर्ण घोषणापत्र डाउनलोड गर्नुहोस् ★', 'Download Full Manifesto ★')}
           </a>
-          <button
-            onClick={() => setShowNotifyModal(true)}
-            className="btn-outline w-full md:w-auto !py-4"
-          >
-            {t('थप जानकारी पाउनुहोस् ★', 'Get More Updates ★')}
-          </button>
         </motion.div>
       </div>
 

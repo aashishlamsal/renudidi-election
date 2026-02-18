@@ -13,7 +13,7 @@
         },
         "description": {
             "ne": "भरतपुरको नेतृत्वबाट संघीय नेतृत्वमा। तीन दशकभन्दा बढी राजनीतिक संघर्ष र सेवा यात्राबाट खारिएको नेतृत्व।",
-            "en": "From Bharatpur's leadership to the Federation. Leadership forged through more than three decades of political struggle and service."
+            "en": "Bharatpur to Parliament. Leadership forged through more than three decades of political struggle and service."
         },
         "keywords": [
             "Renu Dahal",
@@ -57,7 +57,7 @@
     },
     "openGraph": {
         "title": "रेनु दिदी | भरतपुरबाट संघसम्म",
-        "description": "From Bharatpur's leadership to the Federation. Three decades of political struggle, service and proven governance.",
+        "description": "Bharatpur to Parliament. Three decades of political struggle, service and proven governance.",
         "type": "website",
         "url": "https://renuformp.com",
         "siteName": "Renu Didi - रेनु दिदी",
@@ -70,14 +70,14 @@
                 "url": "/images/og-image.jpeg",
                 "width": 1200,
                 "height": 630,
-                "alt": "Renu Didi - भरतपुरबाट संघसम्म | From Bharatpur to the Federation"
+                "alt": "Renu Didi - भरतपुरबाट संघसम्म | Bharatpur to Parliament"
             }
         ]
     },
     "twitter": {
         "card": "summary_large_image",
         "title": "रेनु दिदी | भरतपुरबाट संघसम्म",
-        "description": "From Bharatpur's leadership to the Federation. Leadership forged through more than three decades of service.",
+        "description": "Bharatpur to Parliament. Leadership forged through more than three decades of service.",
         "images": [
             "/images/og-image.jpeg"
         ],
@@ -91,7 +91,7 @@
             "alternateName": "रेनु दिदी अभियान",
             "url": "https://renuformp.com",
             "logo": "https://renuformp.com/images/footer-logo.png",
-            "description": "Official campaign website of Renu Dahal (Renu Didi) — from Bharatpur's proven leadership to the national stage.",
+            "description": "Official campaign website of Renu Dahal (Renu Didi) — from Bharatpur's proven leadership to the national parliament.",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "Campaign Office",
@@ -124,7 +124,7 @@
     "pages": {
         "home": {
             "title": "रेनु दिदी | भरतपुरबाट संघसम्म - Renu Didi",
-            "description": "From Bharatpur's leadership to the Federation. Leadership forged through more than three decades of political struggle and service."
+            "description": "Bharatpur to Parliament. Leadership forged through more than three decades of political struggle and service."
         },
         "support": {
             "title": "Support Renu Didi | समर्थन जनाउनुहोस्",
